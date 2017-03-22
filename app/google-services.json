@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "434729491723",
+    "project_id": "krishi-darshan"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434729491723:android:42f2069bf76728a2",
+        "android_client_info": {
+          "package_name": "tcs.krishidarshan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434729491723-07tqa1hpdlma5k27c7m29ruk7bt3lib9.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "434729491723-q29hfv6ldamkan3od03tv6oht7ec94k4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tcs.krishidarshan",
+            "certificate_hash": "4ee31d8b54e85f323c9674f84a25c2254580108b"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3WHg52uI4n0GvFpRo_nCBbqrSoTjul8Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
