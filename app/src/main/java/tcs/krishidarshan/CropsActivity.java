@@ -1,22 +1,26 @@
 package tcs.krishidarshan;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-public class CropsActivity extends AppCompatActivity  {
+import tcs.krishidarshan.dummy.DummyCrops;
+
+public class CropsActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -86,6 +90,7 @@ public class CropsActivity extends AppCompatActivity  {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        private int mColumnCount = 1;
 
         public PlaceholderFragment() {
         }
@@ -106,8 +111,17 @@ public class CropsActivity extends AppCompatActivity  {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_crops, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            //Set the adapter
+            if (rootView instanceof RecyclerView) {
+                Context context = rootView.getContext();
+                RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.card_crop_list);
+                if (mColumnCount <= 1) {
+                    recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                } else {
+                    recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+                }
+                recyclerView.setAdapter(new CropsAdapter(DummyCrops.ITEMS));
+            }
             return rootView;
         }
     }

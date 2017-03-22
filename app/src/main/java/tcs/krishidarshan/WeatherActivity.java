@@ -77,7 +77,7 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
 
         fab= (FloatingActionButton) findViewById(R.id.fab);
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-         editor= prefs.edit();
+        editor= prefs.edit();
 
     }
 
@@ -147,42 +147,42 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
                 }
             }
 
-           String defaultLocation = prefs.getString("pref_location_key",getString(R.string.pref_default_location_value));
+            String defaultLocation = prefs.getString("pref_location_key",getString(R.string.pref_default_location_value));
             setCurrentLocation(this, defaultLocation);
 
         }
 
-       fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
 
             WeatherActivity s =new WeatherActivity();
             @Override
             public void onClick(View v) {
                 et_change_location=(EditText)findViewById(R.id.et_location);
-if(status==true) {
-        et_change_location.setVisibility(View.VISIBLE);
-    status=false;
-}
-else {
-    if(et_change_location.getText().toString().isEmpty()) {
-        Toast.makeText(getApplicationContext(),"khaali",Toast.LENGTH_LONG).show();
-        et_change_location.setVisibility(View.INVISIBLE);
-        status=true;
-        return;
-    }
-    editor.putString("pref_location_key", et_change_location.getText().toString()).commit();
-    //Toast.makeText(getApplicationContext(),"hey",Toast.LENGTH_LONG).show();
-    String defaultLocation = prefs.getString("pref_location_key", getString(R.string.pref_default_location_value));
-    Toast.makeText(getApplicationContext(), defaultLocation, Toast.LENGTH_LONG).show();
-    try {
-        setCurrentLocation(s, defaultLocation);
-    }catch (IllegalArgumentException illegalArgumentException){
-        Toast.makeText(getApplicationContext(),"illegal",Toast.LENGTH_LONG).show();
-        return;
-    }
-    et_change_location.setVisibility(View.INVISIBLE);
-    status = true;
+                if(status==true) {
+                    et_change_location.setVisibility(View.VISIBLE);
+                    status=false;
+                }
+                else {
+                    if(et_change_location.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(),"khaali",Toast.LENGTH_LONG).show();
+                        et_change_location.setVisibility(View.INVISIBLE);
+                        status=true;
+                        return;
+                    }
+                    editor.putString("pref_location_key", et_change_location.getText().toString()).commit();
+                    //Toast.makeText(getApplicationContext(),"hey",Toast.LENGTH_LONG).show();
+                    String defaultLocation = prefs.getString("pref_location_key", getString(R.string.pref_default_location_value));
+                    Toast.makeText(getApplicationContext(), defaultLocation, Toast.LENGTH_LONG).show();
+                    try {
+                        setCurrentLocation(s, defaultLocation);
+                    }catch (IllegalArgumentException illegalArgumentException){
+                        Toast.makeText(getApplicationContext(),"illegal",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    et_change_location.setVisibility(View.INVISIBLE);
+                    status = true;
 
-}
+                }
             }
         });
 
@@ -194,25 +194,25 @@ else {
         // Ensure username and password exist before setting window adapter.
         if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("Failed to connect to the Weather Company Data service due to invalid " +
-                        "credentials. Please verify your credentials in the weather_credentials.xml file and " +
-                        "rebuild the application. See the README for further assistance.");
-                builder.setTitle("Uh Oh!");
-                builder.setCancelable(false);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Failed to connect to the Weather Company Data service due to invalid " +
+                    "credentials. Please verify your credentials in the weather_credentials.xml file and " +
+                    "rebuild the application. See the README for further assistance.");
+            builder.setTitle("Uh Oh!");
+            builder.setCancelable(false);
 
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                }
+            });
 
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
 
-         else if(prefs.getBoolean("alert_status",true)){
+        else if(prefs.getBoolean("alert_status",true)){
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(getString(R.string.weather_first_time_alert));
@@ -239,22 +239,22 @@ else {
     public void setCurrentLocation(WeatherActivity s,String defaultLocation) {
         try {
 
-                currentLocation = getLocationFromAddress(defaultLocation);
-                onMapLongClick(currentLocation);
-                currentMarker = mMap.addMarker(new MarkerOptions().position(currentLocation));
-                mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(s, getApplicationContext(), currentLocation));
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f), new GoogleMap.CancelableCallback() {
+            currentLocation = getLocationFromAddress(defaultLocation);
+            onMapLongClick(currentLocation);
+            currentMarker = mMap.addMarker(new MarkerOptions().position(currentLocation));
+            mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(s, getApplicationContext(), currentLocation));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f), new GoogleMap.CancelableCallback() {
 
-                    @Override
-                    public void onFinish() {
-                        currentMarker.showInfoWindow();
-                    }
+                @Override
+                public void onFinish() {
+                    currentMarker.showInfoWindow();
+                }
 
-                    @Override
-                    public void onCancel() {
+                @Override
+                public void onCancel() {
 
-                    }
-                });
+                }
+            });
 
         }catch(Exception e){
             e.printStackTrace();
@@ -374,12 +374,6 @@ else {
         } catch (IllegalArgumentException illegalArgumentException) {
             return null;
         }
-        }
-
     }
 
-
-
-
-
-
+}

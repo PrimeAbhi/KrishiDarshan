@@ -23,7 +23,7 @@ public class DummyContent {
     public static final List<DummyItem> ITEMS = new ArrayList<>();
     private static final int COUNT = 4;
     private static String[] item_names = {"Crops", "Weather", "Market Price", "Schemes"};
-    private static int[] item_list = {R.drawable.bg, R.drawable.weather_bg, R.drawable.bg, R.drawable.bg};
+    private static int[] item_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
 
     static {
         // Add some sample items.

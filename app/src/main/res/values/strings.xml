@@ -17,6 +17,9 @@
         completions."
     </string>
 
+    <string name="welcome_home">Welcome to KrishiDarshan\n You are Important To All</string>
+    <string name="loading">Loading</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
@@ -26,7 +29,7 @@
     <string name="pref_description_social_recommendations">Recommendations for people to contact
         based on your message history
     </string>
-<string name="welcome">Welcome !</string>
+    <string name="welcome">Welcome !</string>
     <string name="pref_title_display_name">Location</string>
     <string name="pref_default_location_value">New Delhi</string>
     <string name="pref_location_value">Haridwar</string>
