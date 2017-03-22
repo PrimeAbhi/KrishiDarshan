@@ -39,6 +39,8 @@ public class ForecastActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forecast);
 
         this.setTitle("Forecast");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.serializeNulls();
         gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
