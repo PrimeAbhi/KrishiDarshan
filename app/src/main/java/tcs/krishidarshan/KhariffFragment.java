@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import tcs.krishidarshan.dummy.DummyCrops;
+import tcs.krishidarshan.dummy.DummyCrops.DummyItem;
+
 
 /**
  * Created by Abhishek on 21-03-2017.
@@ -23,6 +25,7 @@ public class KhariffFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
+    private OnListFragmentInteractionListener mListener;
 
     public KhariffFragment() {
     }
@@ -52,14 +55,36 @@ public class KhariffFragment extends Fragment {
         //Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-           RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.card_crop_list);
+            RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.card_crop_list);
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new CropsAdapter(DummyCrops.ITEMS));
+            recyclerView.setAdapter(new CropsAdapter(DummyCrops.ITEMS, mListener));
         }
         return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnListFragmentInteractionListener) {
+            mListener = (OnListFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnListFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    public interface OnListFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onListFragmentInteraction(DummyItem item, int position);
     }
 }

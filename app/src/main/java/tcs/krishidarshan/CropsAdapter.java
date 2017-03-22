@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import tcs.krishidarshan.KhariffFragment.OnListFragmentInteractionListener;
 import tcs.krishidarshan.dummy.DummyCrops.DummyItem;
+
 
 /**
  * Created by Abhishek on 19-03-2017.
@@ -18,10 +20,12 @@ import tcs.krishidarshan.dummy.DummyCrops.DummyItem;
 
 public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.ViewHolder> {
     private final List<DummyItem> mValues;
+    private final OnListFragmentInteractionListener mListener;
 
 
-    public CropsAdapter(List<DummyItem> items) {
+    public CropsAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
+        mListener = listener;
     }
 
     @Override
@@ -37,6 +41,16 @@ public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.ViewHolder> 
         holder.mIdView.setImageResource(holder.mItem.id);
         holder.mContentView.setText(holder.mItem.content);
         holder.mContentViewDetail.setText(holder.mItem.content_detail);
+        holder.mView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != mListener) {
+                    // Notify the active callbacks interface (the activity, if the
+                    // fragment is attached to one) that an item has been selected.
+                    mListener.onListFragmentInteraction(holder.mItem,position);
+                }
+            }
+        });
     }
 
     @Override

@@ -1,6 +1,6 @@
 package tcs.krishidarshan;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,19 +8,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import tcs.krishidarshan.dummy.DummyCrops;
 
-public class CropsActivity extends AppCompatActivity {
+public class CropsActivity extends AppCompatActivity implements KhariffFragment.OnListFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -31,6 +25,7 @@ public class CropsActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -81,50 +76,6 @@ public class CropsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-        private int mColumnCount = 1;
-
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_crops, container, false);
-            //Set the adapter
-            if (rootView instanceof RecyclerView) {
-                Context context = rootView.getContext();
-                RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.card_crop_list);
-                if (mColumnCount <= 1) {
-                    recyclerView.setLayoutManager(new LinearLayoutManager(context));
-                } else {
-                    recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-                }
-                recyclerView.setAdapter(new CropsAdapter(DummyCrops.ITEMS));
-            }
-            return rootView;
-        }
-    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -140,7 +91,7 @@ public class CropsActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return new KhariffFragment();
         }
 
         @Override
@@ -164,4 +115,21 @@ public class CropsActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    @Override
+    public void onListFragmentInteraction(DummyCrops.DummyItem item, int position) {
+        String[] str = {"Har Ki Pauri", "Mansa Devi Temple", "Bharat Mata Mandir", "Chandi Devi Temple",
+                "Vaishno Devi Temple", "Daksha Temple", "Shantikunj", "Gau Ghat",
+                "Kushavarta Ghat", "Vishnu Ghat", "Asthi Pravah Ghat", "Subhash Ghat", "GKV", "FET,GKV"};
+
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("title", str[position]);
+        switch (position) {
+            case 0:
+                intent.putExtra("url", "<html><body><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Har Ki Pauri is a famous ghat on the banks of the Ganges in Haridwar in Uttarakhand state in India. This revered place is the major landmark of the holy city of Haridwar.<br/>Har Ki Pauri is also the area where thousands of pilgrims converge and the festivities commence during the Kumbha Mela, which takes place every twelve years, and the Ardh Kumbh Mela, which takes place every six years and the Punjabi festival of Vaisakhi, a harvest festival occurring every year in the month of April .</p><h3 style=\"text-align:center; color:#03A9F4;\">The Ganga Aarti</h3><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Each evening at sunset priests perform Ganga Aarti here, when lights are set on the water to drift downstream. A large number of people gather on both the banks of river Ganges to sing its praises. The priests hold large fire bowls in their hands, the gongs in the temples at the Ghat start ringing and the chants flowing out of lips fill the air. People float earthen Diyas, with burning flickers and flowers in them as a symbol of hope and wishes .The golden hues of floral diyas reflected in the river Ganges presents spectacular view.</p><strong><p style=\"color:#646464;\">Keep Ganga Clean.<br/>Take a pledge to protect your local water bodies and environment, and to inspire your friends, family and community to do the same.</br></br></br></br></p></strong></body></html>");
+                break;
+        }
+        startActivity(intent);
+    }
+
 }
