@@ -10,3 +10,4 @@
     app:layoutManager="LinearLayoutManager"
     tools:context="tcs.krishidarshan.MainActivity"
     tools:listitem="@layout/card_view" />
+

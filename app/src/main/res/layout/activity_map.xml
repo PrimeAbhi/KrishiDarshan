@@ -5,7 +5,7 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tcs.krishidarshan.WeatherFragment"
+    tools:context="tcs.krishidarshan.WeatherActivity"
     tools:layout="@layout/activity_map">
 
     <android.support.v7.widget.Toolbar
@@ -17,4 +17,30 @@
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
     </android.support.v7.widget.Toolbar>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="28dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        android:elevation="8dp"
+        app:srcCompat="@android:drawable/ic_dialog_map" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/et_location"
+        android:hint="@string/title_change_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        />
+
 </fragment>

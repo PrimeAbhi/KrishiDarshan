@@ -1,7 +1,6 @@
 package tcs.krishidarshan;
 
 import android.Manifest;
-import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,14 +11,13 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -33,9 +31,9 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.ibm.mobilefirstplatform.clientsdk.android.core.api.BMSClient;
 
+import java.io.IOException;
 import java.util.List;
 
-import static tcs.krishidarshan.R.menu.main;
 
 /**
  * Created by Abhishek on 19-03-2017.
@@ -49,6 +47,14 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
     private String username;
     private String password;
     private Marker currentMarker = null;
+    private FloatingActionButton fab;
+    EditText et_change_location;
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
+    boolean alert_status=true;
+    boolean status=true;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,32 +75,10 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
 
         this.setTitle("Weather");
 
+        fab= (FloatingActionButton) findViewById(R.id.fab);
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+         editor= prefs.edit();
 
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(main, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.action_settings:
-                startActivity(new Intent(this, tcs.krishidarshan.SettingsActivity.class));
-            case R.id.action_search:
-
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     @Override
@@ -117,6 +101,7 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
         boolean gps_enabled = false;
         boolean network_enabled = false;
 
+
         try {
             gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
         } catch (Exception ex) {
@@ -128,10 +113,10 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
         }
 
 
-        if (!gps_enabled && !network_enabled) {
+        if (!gps_enabled || !network_enabled) {
             // Set current location to Austin TX by default if location services are disabled.
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("please enable GPS and Internet to access Weather Information");
+            builder.setMessage(getString(R.string.alert_gps_internet_enable));
             builder.setCancelable(false);
 
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -161,57 +146,77 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
                     currentLocation = new LatLng(28, 77);
                 }
             }
+
+           String defaultLocation = prefs.getString("pref_location_key",getString(R.string.pref_default_location_value));
+            setCurrentLocation(this, defaultLocation);
+
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String defaultLocation = prefs.getString(getString(R.string.pref_location_key), getString(R.string.pref_default_location_value));
-        Toast.makeText(this, defaultLocation, Toast.LENGTH_LONG).show();
-        currentLocation = getLocationFromAddress(defaultLocation);
-        onMapLongClick(currentLocation);
-        currentMarker = mMap.addMarker(new MarkerOptions()
-                .position(currentLocation)
-                .title("Hello world"));
-        mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(this, getApplicationContext(), currentLocation));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f), new GoogleMap.CancelableCallback() {
+       fab.setOnClickListener(new View.OnClickListener() {
 
+            WeatherActivity s =new WeatherActivity();
             @Override
-            public void onFinish() {
-                currentMarker.showInfoWindow();
-            }
+            public void onClick(View v) {
+                et_change_location=(EditText)findViewById(R.id.et_location);
+if(status==true) {
+        et_change_location.setVisibility(View.VISIBLE);
+    status=false;
+}
+else {
+    if(et_change_location.getText().toString().isEmpty()) {
+        Toast.makeText(getApplicationContext(),"khaali",Toast.LENGTH_LONG).show();
+        et_change_location.setVisibility(View.INVISIBLE);
+        status=true;
+        return;
+    }
+    editor.putString("pref_location_key", et_change_location.getText().toString()).commit();
+    //Toast.makeText(getApplicationContext(),"hey",Toast.LENGTH_LONG).show();
+    String defaultLocation = prefs.getString("pref_location_key", getString(R.string.pref_default_location_value));
+    Toast.makeText(getApplicationContext(), defaultLocation, Toast.LENGTH_LONG).show();
+    try {
+        setCurrentLocation(s, defaultLocation);
+    }catch (IllegalArgumentException illegalArgumentException){
+        Toast.makeText(getApplicationContext(),"illegal",Toast.LENGTH_LONG).show();
+        return;
+    }
+    et_change_location.setVisibility(View.INVISIBLE);
+    status = true;
 
-            @Override
-            public void onCancel() {
-
+}
             }
         });
+
 
         username = getResources().getString(R.string.weather_username);
         password = getResources().getString(R.string.weather_password);
 
+
         // Ensure username and password exist before setting window adapter.
         if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Failed to connect to the Weather Company Data service due to invalid " +
+                        "credentials. Please verify your credentials in the weather_credentials.xml file and " +
+                        "rebuild the application. See the README for further assistance.");
+                builder.setTitle("Uh Oh!");
+                builder.setCancelable(false);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+
+         else if(prefs.getBoolean("alert_status",true)){
+
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Failed to connect to the Weather Company Data service due to invalid " +
-                    "credentials. Please verify your credentials in the weather_credentials.xml file and " +
-                    "rebuild the application. See the README for further assistance.");
-            builder.setTitle("Uh Oh!");
-            builder.setCancelable(false);
-
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();
-                }
-            });
-
-            AlertDialog alert = builder.create();
-            alert.show();
-
-        } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Get the current weather for any point on the map. Simply long press " +
-                    "to drop a marker. Tap anywhere on the map to dismiss the current pin");
-            builder.setTitle("Welcome!");
+            builder.setMessage(getString(R.string.weather_first_time_alert));
+            builder.setTitle(getString(R.string.welcome));
             builder.setCancelable(false);
 
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -225,13 +230,41 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
             alert.show();
 
             mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(this, getApplicationContext(), currentLocation));
+            alert_status = false;
+            prefs.edit().putBoolean("alert_status", alert_status).commit();
+        }
+    }
+
+
+    public void setCurrentLocation(WeatherActivity s,String defaultLocation) {
+        try {
+
+                currentLocation = getLocationFromAddress(defaultLocation);
+                onMapLongClick(currentLocation);
+                currentMarker = mMap.addMarker(new MarkerOptions().position(currentLocation));
+                mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(s, getApplicationContext(), currentLocation));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f), new GoogleMap.CancelableCallback() {
+
+                    @Override
+                    public void onFinish() {
+                        currentMarker.showInfoWindow();
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+                });
+
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 
     @Override
     public void onMapLongClick(LatLng latLng) {
 
-        Toast.makeText(this, "onMapLong", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "onMapLong", Toast.LENGTH_LONG).show();
 
         LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
         boolean gps_enabled = false;
@@ -251,7 +284,7 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
             // Set current location to Austin TX by default if location services are disabled.
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("please enable GPS and Internet to access Weather Information");
+            builder.setMessage(getString(R.string.alert_gps_internet_enable));
             builder.setCancelable(false);
 
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -273,7 +306,7 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
             Marker current = currentMarker;
             mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(this, getApplicationContext(), latLng));
             currentMarker = mMap.addMarker(new MarkerOptions().position(latLng));
-            Toast.makeText(this, "marker set", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "marker set", Toast.LENGTH_LONG).show();
 
             if (current != null) {
                 current.remove();
@@ -322,8 +355,6 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
 
         Geocoder coder = new Geocoder(this);
         List<Address> address;
-        String p1 = null;
-        String p2 = null;
 
         try {
             address = coder.getFromLocationName(strAddress, 5);
@@ -338,13 +369,15 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
                     (location.getLongitude()));
 
             return latLng;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException ioException) {
             return null;
+        } catch (IllegalArgumentException illegalArgumentException) {
+            return null;
+        }
         }
 
     }
-}
+
 
 
 
