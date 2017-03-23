@@ -20,20 +20,35 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
+
+    //Main Activity Items
     public static final List<DummyItem> ITEMS = new ArrayList<>();
     private static String[] item_names = {"Crops", "Weather", "Market Price", "Schemes"};
     private static int[] item_list = {R.drawable.bg, R.drawable.weather_bg, R.drawable.bg, R.drawable.bg};
 
+    //Khariff Items
     public static final List<DummyItem> KHARIFF_ITEMS = new ArrayList<>();
     private static String[] khariff_item_names = {"Crops", "Weather", "Market Price", "ABC"};
     private static int[] khariff_item_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
     private static String[] khariff_item_content = {"Hello", "Abhishek", "How", "Are"};
 
+    //Zaid Items
     public static final List<DummyItem> RABI_ITEMS = new ArrayList<>();
     private static String[] rabi_names = {"Crops", "Weather", "Market Price", "ABC"};
     private static int[] rabi_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
     private static String[] rabi_content = {"Hello", "Rishabh", "How", "Are"};
 
+    //Zaid Rabi Items
+    public static final List<DummyItem> ZAID_RABI_ITEMS = new ArrayList<>();
+    private static String[] zaid_rabi_names = {"Crops", "Weather", "Market Price", "ABC"};
+    private static int[] zaid_rabi_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
+    private static String[] zaid_rabi_content = {"Hello", "Vikram", "How", "Are"};
+
+    //Zaid Khariff Items
+    public static final List<DummyItem> ZAID_KHARIFF_ITEMS = new ArrayList<>();
+    private static String[] zaid_khariff_names = {"Crops", "Weather", "Market Price", "ABC"};
+    private static int[] zaid_khariff_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
+    private static String[] zaid_khariff_content = {"Hello", "Sravan", "How", "Are"};
 
     private static final int COUNT = 4;
 
@@ -43,6 +58,8 @@ public class DummyContent {
             addItem(createDummyItem(i));
             addItemForKhariff(createDummyItemForKhariff(i));
             addItemForRabi(createDummyItemForRabi(i));
+            addItemForZaidRabi(createDummyItemForZaidRabi(i));
+            addItemForZaidKhariff(createDummyItemForZaidKhariff(i));
         }
     }
 
@@ -58,6 +75,14 @@ public class DummyContent {
         RABI_ITEMS.add(rabiItem);
     }
 
+    private static void addItemForZaidRabi(DummyItem zaidrabiItem) {
+        ZAID_RABI_ITEMS.add(zaidrabiItem);
+    }
+
+    private static void addItemForZaidKhariff(DummyItem zaidrabiItem) {
+        ZAID_KHARIFF_ITEMS.add(zaidrabiItem);
+    }
+
 
     private static DummyItem createDummyItem(int position) {
         return new DummyItem(item_list[position], item_names[position], null);
@@ -69,6 +94,14 @@ public class DummyContent {
 
     private static DummyItem createDummyItemForRabi(int position) {
         return new DummyItem(rabi_list[position], rabi_names[position], rabi_content[position]);
+    }
+
+    private static DummyItem createDummyItemForZaidRabi(int position) {
+        return new DummyItem(zaid_rabi_list[position], zaid_rabi_names[position], zaid_rabi_content[position]);
+    }
+
+    private static DummyItem createDummyItemForZaidKhariff(int position) {
+        return new DummyItem(zaid_khariff_list[position], zaid_khariff_names[position], zaid_khariff_content[position]);
     }
 
     /**
