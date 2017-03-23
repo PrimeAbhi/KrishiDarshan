@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import tcs.krishidarshan.dummy.DummyCrops;
-import tcs.krishidarshan.dummy.DummyCrops.DummyItem;
+import tcs.krishidarshan.dummy.DummyContent;
+import tcs.krishidarshan.dummy.DummyContent.DummyItem;
 
 
 /**
@@ -61,7 +61,7 @@ public class KhariffFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new CropsAdapter(DummyCrops.ITEMS, mListener));
+            recyclerView.setAdapter(new DataAdapter(DummyContent.KHARIFF_ITEMS, mListener));
         }
         return view;
     }
