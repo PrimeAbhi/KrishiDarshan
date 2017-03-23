@@ -6,54 +6,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/full_name"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp">
-
-        <EditText
-            android:id="@+id/your_full_name"
-            android:layout_width="fill_parent"
-            android:layout_height="46dp"
-            android:ems="10"
-            android:hint="Full Name"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/holo_red_dark"
-            android:background="@drawable/border"/>
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/mobile_number"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <EditText
-            android:id="@+id/your_mobile_number"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Type Mobile Number"
-            android:inputType="textPhonetic"
-            android:textColor="@android:color/white" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/city_name_field"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <EditText
-            android:id="@+id/city_name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Enter Your City Here"
-            android:inputType="text"
-            android:textColor="@android:color/white" />
-    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:layout_width="fill_parent"

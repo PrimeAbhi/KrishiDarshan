@@ -2,10 +2,15 @@ package tcs.krishidarshan;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -30,10 +35,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private GoogleSignInOptions gso;
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
-
-
+    private EditText your_full_name,city_name;
+    private EditText your_mobile;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+         editor = preferences.edit();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //Initializing google signin option
@@ -50,6 +59,44 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         signInButton.setSize(SignInButton.SIZE_WIDE);
         signInButton.setScopes(gso.getScopeArray());
         signInButton.setOnClickListener(this);
+        your_full_name=(EditText)findViewById(R.id.your_full_name);
+        your_mobile=(EditText) findViewById(R.id.mobile_number);
+        city_name=(EditText)findViewById(R.id.city_name);
+    }
+
+
+    public void clicked_signup(View v){
+        your_full_name.setError(null);
+        your_mobile.setError(null);
+        city_name.setError(null);
+        boolean cancel = false;
+        View focusView = null;
+        String name=your_full_name.getText().toString();
+        String mobile=your_mobile.getText().toString();
+        String city=city_name.getText().toString();
+        if(TextUtils.isEmpty(name)){
+            your_full_name.setError("enter name first");
+            focusView=signInButton;
+            cancel=true;
+
+        } if(TextUtils.isEmpty(mobile)){
+            your_mobile.setError("enter mobile first");
+            focusView=signInButton;
+            cancel=true;
+
+        } if(TextUtils.isEmpty(city)){
+            city_name.setError("enter city first");
+            focusView=signInButton;
+            cancel=true;
+
+        }
+        else if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(mobile)&&!TextUtils.isEmpty(city)){
+
+            editor.putString("pref_name", name).commit();
+            editor.putString("pref_mobile", mobile).commit();
+            editor.putString("pref_location_key", city).commit();
+            startActivity(new Intent(this, MainActivity.class));
+        }
     }
 
     @Override
@@ -88,11 +135,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (result.isSuccess()) {
             GoogleSignInAccount acct = result.getSignInAccount();
             Intent intent = new Intent(this, MainActivity.class);
-            Bundle b = new Bundle();
-            b.putString("Name", acct.getDisplayName());
-            b.putString("Email", acct.getEmail());
-            b.putParcelable("Image", acct.getPhotoUrl());
-            intent.putExtras(b);
+            editor.putString("pref_name", acct.getDisplayName()).commit();
             startActivity(intent);
             finish();
         } else {

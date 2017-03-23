@@ -1,23 +1,31 @@
 package tcs.krishidarshan;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import tcs.krishidarshan.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity {
-
+WebView x;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String n=prefs.getString("pref_name","@string/pref_name");
+        Toast.makeText(this,"Welcome "+n,Toast.LENGTH_LONG).show();
+
 
     }
 
@@ -39,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id=item.getItemId();
         if(id==R.id.action_settings){
-           return true;
+           startActivity(new Intent(this,SettingsActivity.class));
+        }
+        if(id==R.id.about_us){
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

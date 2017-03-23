@@ -2,12 +2,34 @@
 
     <EditTextPreference
         android:capitalize="words"
+        android:defaultValue="@string/pref_default_name"
+        android:inputType="textCapWords"
+        android:key="pref_name"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Change Name"
+        />
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_name"
+        android:inputType="phone"
+        android:key="pref_mobile"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Change Mobile"
+        android:maxLength="10"
+        />
+
+    <EditTextPreference
+        android:capitalize="words"
         android:defaultValue="@string/pref_default_location_value"
         android:inputType="textCapWords"
         android:key="pref_location_key"
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:title="@string/pref_title_display_name" />
+        android:title="Change City" />
 
 </PreferenceScreen>

@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "434729491723",
-    "project_id": "krishi-darshan"
+    "project_number": "1079151159968",
+    "project_id": "krishidarshan-161922"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:434729491723:android:42f2069bf76728a2",
+        "mobilesdk_app_id": "1:1079151159968:android:42f2069bf76728a2",
         "android_client_info": {
           "package_name": "tcs.krishidarshan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "434729491723-07tqa1hpdlma5k27c7m29ruk7bt3lib9.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "434729491723-q29hfv6ldamkan3od03tv6oht7ec94k4.apps.googleusercontent.com",
+          "client_id": "1079151159968-thmlnqrgq2dk7saellpdcbdb15pn0bre.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "tcs.krishidarshan",
-            "certificate_hash": "4ee31d8b54e85f323c9674f84a25c2254580108b"
+            "certificate_hash": "5edbef40c7f6166f0ff702e9add87b723c09bba7"
           }
+        },
+        {
+          "client_id": "1079151159968-6ibbqvhbfh5ikt9dknepl7ni9umur329.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD3WHg52uI4n0GvFpRo_nCBbqrSoTjul8Y"
+          "current_key": "AIzaSyCbFtmbPNZTvbQgo8Vsf5MLi0oKlFji03g"
         }
       ],
       "services": {
