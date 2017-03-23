@@ -100,4 +100,9 @@
     <string name="title_activity_crops">CropsActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="pref_default_name">Default name</string>
+
+    //CROPS VALUES
+    <string name="joawr">Jowar</string>
+    <string name="jowar_intro">Jowar is one of the important food and fodder cereal crops cultivated across India, Sorghum popularly known as “Jowar” in India. </string>
 </resources>

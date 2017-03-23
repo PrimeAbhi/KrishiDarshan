@@ -22,9 +22,15 @@ public class DummyCrops {
      */
     public static final List<DummyItem> ITEMS = new ArrayList<>();
     private static final int COUNT = 4;
-    private static String[] item_names = {"Crops", "Weather", "Market Price", "ABC"};
-    private static int[] item_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
-    private static String [] item_content = {"Hello","Abhishek","How","Are"};
+    private static String[] item_names = {"Jowar", "Bazra", "Rice", "Maize"};
+    private static int[] item_list = {R.drawable.jowar_bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
+    private static String [] item_content = {
+    "Jowar is one of the important food and fodder cereal crops cultivated across India, Sorghum popularly known as “Jowar” in India.",
+    "Bajra is the Second most important millet which is used as food in drier parts of the country. It is also widely used as fodder as its stalks are fed to cattle.",
+    "Rice is one of the chief grains of India. Moreover, this country has the largest area under rice cultivation, as it is one of the principal food crops. It is in fact the dominant crop of the country.",
+    "Maize is grown throughout the year in India. It is predominantly a kharif crop with 85 per cent of the area under cultivation in the season. Maize is the third most important cereal crop in India after rice and wheat. "
+
+    };
 
     static {
         // Add some sample items.
