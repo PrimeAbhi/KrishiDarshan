@@ -23,6 +23,7 @@
         />
 
     <EditTextPreference
+        android:id="@+id/location_preference"
         android:capitalize="words"
         android:defaultValue="@string/pref_default_location_value"
         android:inputType="textCapWords"

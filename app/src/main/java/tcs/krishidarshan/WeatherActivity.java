@@ -11,6 +11,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -32,6 +33,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.ibm.mobilefirstplatform.clientsdk.android.core.api.BMSClient;
 
 import java.io.IOException;
+import java.util.IllegalFormatConversionException;
 import java.util.List;
 
 
@@ -53,8 +55,6 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
     SharedPreferences.Editor editor;
     boolean alert_status=true;
     boolean status=true;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +100,7 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
         LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
         boolean gps_enabled = false;
         boolean network_enabled = false;
+
 
 
         try {
@@ -169,18 +170,16 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
                         status=true;
                         return;
                     }
-                    editor.putString("pref_location_key", et_change_location.getText().toString()).commit();
-                    //Toast.makeText(getApplicationContext(),"hey",Toast.LENGTH_LONG).show();
-                    String defaultLocation = prefs.getString("pref_location_key", getString(R.string.pref_default_location_value));
-                    Toast.makeText(getApplicationContext(), defaultLocation, Toast.LENGTH_LONG).show();
-                    try {
-                        setCurrentLocation(s, defaultLocation);
-                    }catch (IllegalArgumentException illegalArgumentException){
-                        Toast.makeText(getApplicationContext(),"illegal",Toast.LENGTH_LONG).show();
-                        return;
+                    if(getLocationFromAddress(et_change_location.getText().toString())!=null){
+                        editor.putString("pref_location_key", et_change_location.getText().toString()).commit();
+                        //Toast.makeText(getApplicationContext(),"hey",Toast.LENGTH_LONG).show();
+                        String defaultLocation = prefs.getString("pref_location_key", getString(R.string.pref_default_location_value));
+                        Toast.makeText(getApplicationContext(), defaultLocation, Toast.LENGTH_LONG).show();
+                        setCurrentLocation(s,defaultLocation);
+                        et_change_location.setVisibility(View.INVISIBLE);
+                        status = true;
                     }
-                    et_change_location.setVisibility(View.INVISIBLE);
-                    status = true;
+
 
                 }
             }
@@ -239,27 +238,29 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
     public void setCurrentLocation(WeatherActivity s,String defaultLocation) {
         try {
 
-            currentLocation = getLocationFromAddress(defaultLocation);
-            onMapLongClick(currentLocation);
-            currentMarker = mMap.addMarker(new MarkerOptions().position(currentLocation));
-            mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(s, getApplicationContext(), currentLocation));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f), new GoogleMap.CancelableCallback() {
+                currentLocation = getLocationFromAddress(defaultLocation);
+                onMapLongClick(currentLocation);
+                currentMarker = mMap.addMarker(new MarkerOptions().position(currentLocation));
+                mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(s, getApplicationContext(), currentLocation));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f), new GoogleMap.CancelableCallback() {
 
-                @Override
-                public void onFinish() {
-                    currentMarker.showInfoWindow();
-                }
+                    @Override
+                    public void onFinish() {
+                        currentMarker.showInfoWindow();
+                    }
 
-                @Override
-                public void onCancel() {
+                    @Override
+                    public void onCancel() {
 
-                }
-            });
+                    }
+                });
 
-        }catch(Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void onMapLongClick(LatLng latLng) {
@@ -352,7 +353,6 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
     }
 
     public LatLng getLocationFromAddress(String strAddress) {
-
         Geocoder coder = new Geocoder(this);
         List<Address> address;
 
@@ -362,18 +362,24 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
                 return null;
             }
             Address location = address.get(0);
+
             location.getLatitude();
             location.getLongitude();
-
             LatLng latLng = new LatLng((location.getLatitude()),
                     (location.getLongitude()));
 
             return latLng;
         } catch (IOException ioException) {
             return null;
-        } catch (IllegalArgumentException illegalArgumentException) {
+        } catch(IllegalFormatConversionException e){
+                e.printStackTrace ();
+            return  null;
+        }catch (Exception e){
+            Toast.makeText(this,"Illegal Argument",Toast.LENGTH_LONG).show();
+            e.printStackTrace();
             return null;
         }
+
     }
 
 }

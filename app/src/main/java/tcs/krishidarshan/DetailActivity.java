@@ -33,8 +33,9 @@ public class DetailActivity extends AppCompatActivity {
             webSettings.setJavaScriptEnabled(true);
             webSettings.setBuiltInZoomControls(true);
             webSettings.setSupportZoom(true);
-            webView.loadDataWithBaseURL(null, url, "text/html", "UTF-8", null);
+            webView.loadUrl(url);
         }
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
