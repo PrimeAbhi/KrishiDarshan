@@ -1,5 +1,8 @@
 package tcs.krishidarshan;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -34,7 +37,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         mRabiListener = null;
         mZaidKhariffListener = null;
         mZaidRabiListener = null;
-
     }
 
     public DataAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
@@ -150,7 +152,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                 }
             });
         }
-
     }
 
     @Override
@@ -187,6 +188,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                             case 1:
                                 Intent i1 = new Intent(mContext, WeatherActivity.class);
                                 mContext.startActivity(i1);
+                                break;
+                            case 3:
+                                Intent i3 =  new Intent (mContext, SchemesActivity.class);
+                                mContext.startActivity(i3);
+                                break;
                         }
                     }
                 });
@@ -206,6 +212,5 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         }
 
     }
-
 
 }

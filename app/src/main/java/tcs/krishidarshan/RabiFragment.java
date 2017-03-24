@@ -68,7 +68,7 @@ public class RabiFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof KhariffFragment.OnListFragmentInteractionListener) {
+        if (context instanceof OnListRabiFragmentInteractionListener) {
             mListener = (OnListRabiFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()

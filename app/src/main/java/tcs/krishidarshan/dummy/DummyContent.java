@@ -16,11 +16,9 @@ import tcs.krishidarshan.R;
  * TODO: Replace all uses of this class before publishing your app.
  */
 public class DummyContent {
-
     /**
      * An array of sample (dummy) items.
      */
-
     //Main Activity Items
     public static final List<DummyItem> ITEMS = new ArrayList<>();
     private static String[] item_names = {"Crops", "Weather", "Market Price", "Schemes"};
@@ -50,6 +48,12 @@ public class DummyContent {
     private static int[] zaid_khariff_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
     private static String[] zaid_khariff_content = {"Hello", "Sravan", "How", "Are"};
 
+    //Schemes
+    public static final List<DummyItem> SCHEMES = new ArrayList<>();
+    private static String[] schemes_names = {"Crops", "Weather", "Market Price", "ABC"};
+    private static int[] schemes_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
+    private static String[] schemes_content = {"Hello", "Sravan", "How", "Are"};
+
     private static final int COUNT = 4;
 
     static {
@@ -60,6 +64,7 @@ public class DummyContent {
             addItemForRabi(createDummyItemForRabi(i));
             addItemForZaidRabi(createDummyItemForZaidRabi(i));
             addItemForZaidKhariff(createDummyItemForZaidKhariff(i));
+            addItemForSchemes(createDummyItemForSchemes(i));
         }
     }
 
@@ -83,6 +88,9 @@ public class DummyContent {
         ZAID_KHARIFF_ITEMS.add(zaidrabiItem);
     }
 
+    private static void addItemForSchemes(DummyItem schemes) {
+        SCHEMES.add(schemes);
+    }
 
     private static DummyItem createDummyItem(int position) {
         return new DummyItem(item_list[position], item_names[position], null);
@@ -102,6 +110,10 @@ public class DummyContent {
 
     private static DummyItem createDummyItemForZaidKhariff(int position) {
         return new DummyItem(zaid_khariff_list[position], zaid_khariff_names[position], zaid_khariff_content[position]);
+    }
+
+    private static DummyItem createDummyItemForSchemes(int position) {
+        return new DummyItem(schemes_list[position], schemes_names[position], schemes_content[position]);
     }
 
     /**
