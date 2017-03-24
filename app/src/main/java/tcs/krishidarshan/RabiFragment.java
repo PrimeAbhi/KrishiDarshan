@@ -16,24 +16,23 @@ import tcs.krishidarshan.dummy.DummyContent.DummyItem;
 
 
 /**
- * Created by Abhishek on 21-03-2017.
+ * Created by Abhishek on 23-03-2017.
  */
 
-public class KhariffFragment extends Fragment {
-
+public class RabiFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
+    private OnListRabiFragmentInteractionListener mListener;
 
-    public KhariffFragment() {
+    public RabiFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static KhariffFragment newInstance(int columnCount) {
-        KhariffFragment fragment = new KhariffFragment();
+    public static RabiFragment newInstance(int columnCount) {
+        RabiFragment fragment = new RabiFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -61,7 +60,7 @@ public class KhariffFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new DataAdapter(DummyContent.KHARIFF_ITEMS, mListener));
+            recyclerView.setAdapter(new DataAdapter(DummyContent.RABI_ITEMS, mListener));
         }
         return view;
     }
@@ -69,8 +68,8 @@ public class KhariffFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof KhariffFragment.OnListFragmentInteractionListener) {
+            mListener = (OnListRabiFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
@@ -83,8 +82,9 @@ public class KhariffFragment extends Fragment {
         mListener = null;
     }
 
-    public interface OnListFragmentInteractionListener {
+    public interface OnListRabiFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item, int position);
+        void onListRabiFragmentInteraction(DummyItem item, int position);
+
     }
 }
