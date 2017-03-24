@@ -24,7 +24,7 @@ public class DummyContent {
     //Main Activity Items
     public static final List<DummyItem> ITEMS = new ArrayList<>();
     private static String[] item_names = {"Crops", "Weather", "Market Price", "Schemes"};
-    private static int[] item_list = {R.drawable.crops, R.drawable.weather_bg, R.drawable.bg, R.drawable.bg};
+    private static int[] item_list = {R.drawable.crops, R.drawable.weather_bg, R.drawable.marketlogo, R.drawable.schemelogo};
 
     //Khariff Items
     public static final List<DummyItem> KHARIFF_ITEMS = new ArrayList<>();
@@ -44,12 +44,13 @@ public class DummyContent {
     private static String[] rabi_names = {"Wheat", "Barley", "Gram", "Mustard","Peas","Potato"};
     private static int[] rabi_list = {R.drawable.wheat, R.drawable.barley, R.drawable.gram, R.drawable.mustard,R.drawable.peas,R.drawable.potato};
     private static String[] rabi_content = {
-            "About Wheat. Wheat is the main cereal crop in India. The total area under the crop is about 29.8 million hectares in the country",
-            "Barley production in India was around 1.55 million tonnes in 2008- 09, as against 1.2 million tonnes in 2007-08. The major producing states in India are Rajasthan, Uttar Pradesh, Madhya Pradesh, Punjab and Haryana.",
-            "Black gram is a member of the Asiatic Vigna crop group. It is an annual pulse grown mostly as a fallow crop in rotation with rice.  ",
-            "Mustard seeds are the small round seeds of various mustard plants. The seeds are usually about 1 to 2 millimetres (0.039 to 0.079 in) in diameter and may be colored from yellowish white to black.",
-    "Peas",
-    "Potato"};
+            "Time Required:40-45  Days  \n"+"Temperature   :57-64  °F",
+            "Time Required:75-90  Days  \n"+"Temperature   :54-61  °F",
+            "Time Required:30-40  Days  \n"+"Temperature   :77-95  °F",
+            "Time Required:00-00  Days  \n"+"Temperature   :72-86  °F",
+            "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F",
+            "Time Required:130-160 Days  \n"+"Temperature   :75-77      °F"
+    };
 
     //Zaid Rabi Items
     public static final List<DummyItem> ZAID_RABI_ITEMS = new ArrayList<>();
@@ -61,7 +62,13 @@ public class DummyContent {
     public static final List<DummyItem> ZAID_KHARIFF_ITEMS = new ArrayList<>();
     private static String[] zaid_khariff_names = {"Cucumber", "Muskmelon", "Sugarcane", "Watermelon","Sunflower"};
     private static int[] zaid_khariff_list = {R.drawable.cucumberimage, R.drawable.muskmelon, R.drawable.sugarcaneimage, R.drawable.watermelonimage,R.drawable.sunflower};
-    private static String[] zaid_khariff_content = {"cucumber", "meskmelon", "sugarcane", "watermelon","sunflower"};
+    private static String[] zaid_khariff_content = {
+            "Time Required:65-75  Days  \n"+"Temperature   :77-89  °F",
+            "Time Required:75-90  Days  \n"+"Temperature   :68-86  °F",
+            "Time Required:35-40  Days  \n"+"Temperature   :68-95  °F",
+            "Time Required:00-00  Days  \n"+"Temperature   :72-86  °F",
+            "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F"
+    };
 
     private static final int COUNT = 4;
     private static final int COUNT_KHARIFF = 7;
