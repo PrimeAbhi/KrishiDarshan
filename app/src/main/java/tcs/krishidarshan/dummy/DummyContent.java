@@ -16,14 +16,12 @@ import tcs.krishidarshan.R;
  * TODO: Replace all uses of this class before publishing your app.
  */
 public class DummyContent {
-
     /**
      * An array of sample (dummy) items.
      */
-
     //Main Activity Items
     public static final List<DummyItem> ITEMS = new ArrayList<>();
-    private static String[] item_names = {"Crops", "Weather", "Market Price", "Schemes"};
+    private static String[] item_names = {"Crops", "Weather", "Market", "Schemes"};
     private static int[] item_list = {R.drawable.crops, R.drawable.weather_bg, R.drawable.marketlogo, R.drawable.schemelogo};
 
     //Khariff Items
@@ -52,38 +50,55 @@ public class DummyContent {
             "Time Required:130-160 Days  \n"+"Temperature   :75-77      °F"
     };
 
-    //Zaid Rabi Items
-    public static final List<DummyItem> ZAID_RABI_ITEMS = new ArrayList<>();
-    private static String[] zaid_rabi_names = {"Crops", "Weather", "Market Price", "ABC"};
-    private static int[] zaid_rabi_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
-    private static String[] zaid_rabi_content = {"Hello", "Vikram", "How", "Are"};
-
     //Zaid Khariff Items
     public static final List<DummyItem> ZAID_KHARIFF_ITEMS = new ArrayList<>();
-    private static String[] zaid_khariff_names = {"Cucumber", "Muskmelon", "Sugarcane", "Watermelon","Sunflower"};
-    private static int[] zaid_khariff_list = {R.drawable.cucumberimage, R.drawable.muskmelon, R.drawable.sugarcaneimage, R.drawable.watermelonimage,R.drawable.sunflower};
+    private static String[] zaid_khariff_names = {"Asparagus", "Muskmelon", "Onion","Sunflower"};
+    private static int[] zaid_khariff_list = {R.drawable.logoasparagus, R.drawable.muskmelon, R.drawable.logoonions, R.drawable.sunflower};
     private static String[] zaid_khariff_content = {
             "Time Required:65-75  Days  \n"+"Temperature   :77-89  °F",
             "Time Required:75-90  Days  \n"+"Temperature   :68-86  °F",
             "Time Required:35-40  Days  \n"+"Temperature   :68-95  °F",
-            "Time Required:00-00  Days  \n"+"Temperature   :72-86  °F",
             "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F"
+    };
+
+
+    //Zaid Rabi Items
+    public static final List<DummyItem> ZAID_RABI_ITEMS = new ArrayList<>();
+    private static String[] zaid_rabi_names = {"Tomato", "Watermelon", "Cucumber", "Sugarcane"};
+    private static int[] zaid_rabi_list = {R.drawable.logotomato, R.drawable.watermelonimage, R.drawable.cucumberimage, R.drawable.sugarcaneimage};
+    private static String[] zaid_rabi_content = {
+            "Time Required:65-75  Days  \n"+"Temperature   :77-89  °F",
+            "Time Required:75-90  Days  \n"+"Temperature   :68-86  °F",
+            "Time Required:35-40  Days  \n"+"Temperature   :68-95  °F",
+            "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F"
+
+    };
+
+
+
+    //Schemes
+    public static final List<DummyItem> SCHEMES = new ArrayList<>();
+    private static String[] schemes_names = {"PradhanMantri Fasal Bima Yojna", "Rashtriya Krishi Vikas Yojana", "PradhanMantri Awas Yojana", "Pradhan Mantri Jan Dhan Yojana"};
+    private static int[] schemes_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
+    private static String[] schemes_content = {
+            "The PMFBY will replace the existing two schemes National Agricultural Insurance Scheme as well as the Modified NAIS.",
+            "Achieve 4% annual growth in agriculture through development of Agriculture and its allied sectors during the XI Plan period",
+            "Provides financial assistance to rural poor for constructing their houses themselves.",
+            "National Mission for Financial Inclusion to ensure access to financial services, namely Banking Savings & Deposit Accounts, Remittance, Credit, Insurance, Pension in an affordable manner"
     };
 
     private static final int COUNT = 4;
     private static final int COUNT_KHARIFF = 7;
     private static final int COUNT_RABI = 6;
-    private static final int COUNT_ZAIDK = 5;
-    //private static final int COUNT_ZAIDR = 4;
+    private static final int COUNT_ZAIDK = 4;
+    private static final int COUNT_ZAIDR = 4;
+    private static final int COUNT_SCHEME=4;
 
     static {
         // Add some sample items.
         for (int i = 0; i < COUNT; i++) {
             addItem(createDummyItem(i));
-            //addItemForKhariff(createDummyItemForKhariff(i));
-            //addItemForRabi(createDummyItemForRabi(i));
-            addItemForZaidRabi(createDummyItemForZaidRabi(i));
-            //addItemForZaidKhariff(createDummyItemForZaidKhariff(i));
+
         }
         for (int i = 0; i < COUNT_KHARIFF; i++) {
             addItemForKhariff(createDummyItemForKhariff(i));
@@ -93,6 +108,17 @@ public class DummyContent {
         }
         for (int i = 0; i < COUNT_ZAIDK; i++) {
             addItemForZaidKhariff(createDummyItemForZaidKhariff(i));
+
+        }
+
+        for (int i = 0; i < COUNT_SCHEME; i++) {
+            addItemForSchemes(createDummyItemForSchemes(i));
+
+        }
+
+        for (int i = 0; i < COUNT_ZAIDR; i++) {
+            addItemForZaidRabi(createDummyItemForZaidRabi(i));
+
         }
 
     }
@@ -117,6 +143,9 @@ public class DummyContent {
         ZAID_KHARIFF_ITEMS.add(zaidrabiItem);
     }
 
+    private static void addItemForSchemes(DummyItem schemes) {
+        SCHEMES.add(schemes);
+    }
 
     private static DummyItem createDummyItem(int position) {
         return new DummyItem(item_list[position], item_names[position], null);
@@ -136,6 +165,10 @@ public class DummyContent {
 
     private static DummyItem createDummyItemForZaidKhariff(int position) {
         return new DummyItem(zaid_khariff_list[position], zaid_khariff_names[position], zaid_khariff_content[position]);
+    }
+
+    private static DummyItem createDummyItemForSchemes(int position) {
+        return new DummyItem(schemes_list[position], schemes_names[position], schemes_content[position]);
     }
 
     /**

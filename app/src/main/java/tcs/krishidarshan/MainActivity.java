@@ -2,6 +2,7 @@ package tcs.krishidarshan;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Showing Images
+        AnimationDrawable animationDrawable = new AnimationDrawable();
+        animationDrawable.addFrame(getResources().getDrawable(R.drawable.tile1), 5000);
+        animationDrawable.addFrame(getResources().getDrawable(R.drawable.tile2), 5000);
+        animationDrawable.addFrame(getResources().getDrawable(R.drawable.tile3), 5000);
+        animationDrawable.setOneShot(false);
+        ImageView imageView = (ImageView) findViewById(R.id.main_image);
+        imageView.setBackgroundDrawable(animationDrawable);
+        animationDrawable.start();
         initViews();
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String n=prefs.getString("pref_name","@string/pref_name");

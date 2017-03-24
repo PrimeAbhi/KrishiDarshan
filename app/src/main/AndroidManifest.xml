@@ -41,6 +41,12 @@
             android:theme="@style/AppTheme" />
 
         <activity
+            android:name=".SchemesActivity"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"
+            android:label="Schemes And Services"/>
+
+        <activity
             android:name=".WeatherActivity"
             android:label="Weather"
             android:parentActivityName=".MainActivity"
