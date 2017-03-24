@@ -11,8 +11,13 @@
         android:title="Settings"
         app:showAsAction="never" />
     <item
+        android:id="@+id/alert"
+        android:title="Alert"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/about_us"
-        android:orderInCategory="100"
+        android:orderInCategory="200"
         android:title="About Us"
         app:showAsAction="never" />
 

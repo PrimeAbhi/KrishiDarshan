@@ -189,6 +189,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                                 Intent i1 = new Intent(mContext, WeatherActivity.class);
                                 mContext.startActivity(i1);
                                 break;
+                            case 2:
+                                Intent i2 = new Intent(mContext, Market.class);
+                                mContext.startActivity(i2);
+                                break;
                             case 3:
                                 Intent i3 =  new Intent (mContext, SchemesActivity.class);
                                 mContext.startActivity(i3);

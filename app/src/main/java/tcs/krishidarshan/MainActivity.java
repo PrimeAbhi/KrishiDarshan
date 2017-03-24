@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         if(id==R.id.about_us){
             return true;
         }
+        if(id==R.id.alert){
+            startActivity(new Intent(this,Alert.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 }
