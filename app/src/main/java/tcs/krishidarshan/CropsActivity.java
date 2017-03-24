@@ -52,30 +52,6 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
         tabLayout.setupWithViewPager(mViewPager);
 
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_crops, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -127,47 +103,89 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item, int position) {
-        String[] str = {"Har Ki Pauri", "Mansa Devi Temple", "Bharat Mata Mandir", "Chandi Devi Temple",
-                "Vaishno Devi Temple", "Daksha Temple", "Shantikunj", "Gau Ghat",
-                "Kushavarta Ghat", "Vishnu Ghat", "Asthi Pravah Ghat", "Subhash Ghat", "GKV", "FET,GKV"};
+        //Title Strings
+        String[] str = {"Jowar", "Bajra", "Rice","Maize","Groundnut","Cotton","Jute" };
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
         switch (position) {
             case 0:
-                intent.putExtra("url", "<html><body><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Har Ki Pauri is a famous ghat on the banks of the Ganges in Haridwar in Uttarakhand state in India. This revered place is the major landmark of the holy city of Haridwar.<br/>Har Ki Pauri is also the area where thousands of pilgrims converge and the festivities commence during the Kumbha Mela, which takes place every twelve years, and the Ardh Kumbh Mela, which takes place every six years and the Punjabi festival of Vaisakhi, a harvest festival occurring every year in the month of April .</p><h3 style=\"text-align:center; color:#03A9F4;\">The Ganga Aarti</h3><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Each evening at sunset priests perform Ganga Aarti here, when lights are set on the water to drift downstream. A large number of people gather on both the banks of river Ganges to sing its praises. The priests hold large fire bowls in their hands, the gongs in the temples at the Ghat start ringing and the chants flowing out of lips fill the air. People float earthen Diyas, with burning flickers and flowers in them as a symbol of hope and wishes .The golden hues of floral diyas reflected in the river Ganges presents spectacular view.</p><strong><p style=\"color:#646464;\">Keep Ganga Clean.<br/>Take a pledge to protect your local water bodies and environment, and to inspire your friends, family and community to do the same.</br></br></br></br></p></strong></body></html>");
+                intent.putExtra("url", "file:///android_res/raw/jowar.html");
                 break;
+            case 1:
+                intent.putExtra("url", "file:///android_res/raw/bajra.html");
+                break;
+            case 2:
+                intent.putExtra("url", "file:///android_res/raw/basmatirice.html");
+                break;
+            case 3:
+                intent.putExtra("url", "file:///android_res/raw/maize.html");
+                break;
+            case 4:
+                intent.putExtra("url", "file:///android_res/raw/groundnut.html");
+                break;
+            case 5:
+                intent.putExtra("url", "file:///android_res/raw/cotton.html");
+                break;
+            case 6:
+                intent.putExtra("url", "file:///android_res/raw/jute.html");
+                break;
+
         }
         startActivity(intent);
     }
 
     @Override
     public void onListRabiFragmentInteraction(DummyContent.DummyItem item, int position) {
-        String[] str = {"Har Ki Pauri", "Mansa Devi Temple", "Bharat Mata Mandir", "Chandi Devi Temple",
-                "Vaishno Devi Temple", "Daksha Temple", "Shantikunj", "Gau Ghat",
-                "Kushavarta Ghat", "Vishnu Ghat", "Asthi Pravah Ghat", "Subhash Ghat", "GKV", "FET,GKV"};
+        String[] str = {"Wheat","Barley","Gram","Mustard","Peas","Potato"};
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
         switch (position) {
             case 0:
-                intent.putExtra("url", "<html><body><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Har Ki Pauri is a famous ghat on the banks of the Ganges in Haridwar in Uttarakhand state in India. This revered place is the major landmark of the holy city of Haridwar.<br/>Har Ki Pauri is also the area where thousands of pilgrims converge and the festivities commence during the Kumbha Mela, which takes place every twelve years, and the Ardh Kumbh Mela, which takes place every six years and the Punjabi festival of Vaisakhi, a harvest festival occurring every year in the month of April .</p><h3 style=\"text-align:center; color:#03A9F4;\">The Ganga Aarti</h3><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Each evening at sunset priests perform Ganga Aarti here, when lights are set on the water to drift downstream. A large number of people gather on both the banks of river Ganges to sing its praises. The priests hold large fire bowls in their hands, the gongs in the temples at the Ghat start ringing and the chants flowing out of lips fill the air. People float earthen Diyas, with burning flickers and flowers in them as a symbol of hope and wishes .The golden hues of floral diyas reflected in the river Ganges presents spectacular view.</p><strong><p style=\"color:#646464;\">Keep Ganga Clean.<br/>Take a pledge to protect your local water bodies and environment, and to inspire your friends, family and community to do the same.</br></br></br></br></p></strong></body></html>");
+                intent.putExtra("url","file:///android_res/raw/wheat.html");
                 break;
+            case 1:
+                intent.putExtra("url","file:///android_res/raw/barley.html");
+                break;
+            case 2:
+                intent.putExtra("url","file:///android_res/raw/gram.html");
+                break;
+            case 3:
+                intent.putExtra("url","file:///android_res/raw/mustard.html");
+
+            case 4:
+                intent.putExtra("url","file:///android_res/raw/peas.html");
+                break;
+            case 5:
+                intent.putExtra("url","file:///android_res/raw/potato.html");
+                break;
+
         }
         startActivity(intent);
     }
 
     @Override
     public void onListZaidKhariffFragmentInteraction(DummyContent.DummyItem item, int position) {
-        String[] str = {"Har Ki Pauri", "Mansa Devi Temple", "Bharat Mata Mandir", "Chandi Devi Temple",
-                "Vaishno Devi Temple", "Daksha Temple", "Shantikunj", "Gau Ghat",
-                "Kushavarta Ghat", "Vishnu Ghat", "Asthi Pravah Ghat", "Subhash Ghat", "GKV", "FET,GKV"};
+        String[] str = {"Cucumber", "Muskmelon", "Sugarcane", "Watermelon","Sunflower"};
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
         switch (position) {
             case 0:
-                intent.putExtra("url", "<html><body><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Har Ki Pauri is a famous ghat on the banks of the Ganges in Haridwar in Uttarakhand state in India. This revered place is the major landmark of the holy city of Haridwar.<br/>Har Ki Pauri is also the area where thousands of pilgrims converge and the festivities commence during the Kumbha Mela, which takes place every twelve years, and the Ardh Kumbh Mela, which takes place every six years and the Punjabi festival of Vaisakhi, a harvest festival occurring every year in the month of April .</p><h3 style=\"text-align:center; color:#03A9F4;\">The Ganga Aarti</h3><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Each evening at sunset priests perform Ganga Aarti here, when lights are set on the water to drift downstream. A large number of people gather on both the banks of river Ganges to sing its praises. The priests hold large fire bowls in their hands, the gongs in the temples at the Ghat start ringing and the chants flowing out of lips fill the air. People float earthen Diyas, with burning flickers and flowers in them as a symbol of hope and wishes .The golden hues of floral diyas reflected in the river Ganges presents spectacular view.</p><strong><p style=\"color:#646464;\">Keep Ganga Clean.<br/>Take a pledge to protect your local water bodies and environment, and to inspire your friends, family and community to do the same.</br></br></br></br></p></strong></body></html>");
+                intent.putExtra("url", "file:////android_res/raw/cucumber.html");
+                break;
+            case 1:
+                intent.putExtra("url", "file:////android_res/raw/muskmelon.html");
+                break;
+            case 2:
+                intent.putExtra("url", "file:////android_res/raw/sugarcane.html");
+                break;
+            case 3:
+                intent.putExtra("url", "file:////android_res/raw/watermelon1.html");
+                break;
+            case 4:
+                intent.putExtra("url", "file:////android_res/raw/sunflower.html");
                 break;
         }
         startActivity(intent);

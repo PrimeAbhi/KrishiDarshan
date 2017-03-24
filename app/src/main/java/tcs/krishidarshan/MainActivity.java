@@ -16,7 +16,7 @@ import android.widget.Toast;
 import tcs.krishidarshan.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity {
-WebView x;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
