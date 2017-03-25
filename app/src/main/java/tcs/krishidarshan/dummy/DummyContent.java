@@ -81,6 +81,7 @@ public class DummyContent {
             //addItemForRabi(createDummyItemForRabi(i));
             addItemForZaidRabi(createDummyItemForZaidRabi(i));
             //addItemForZaidKhariff(createDummyItemForZaidKhariff(i));
+            addItemForSchemes(createDummyItemForSchemes(i));
         }
         for (int i = 0; i < COUNT_KHARIFF; i++) {
             addItemForKhariff(createDummyItemForKhariff(i));
@@ -90,9 +91,7 @@ public class DummyContent {
         }
         for (int i = 0; i < COUNT_ZAIDK; i++) {
             addItemForZaidKhariff(createDummyItemForZaidKhariff(i));
-            addItemForSchemes(createDummyItemForSchemes(i));
         }
-
     }
 
     private static void addItem(DummyItem item) {
@@ -142,7 +141,6 @@ public class DummyContent {
     private static DummyItem createDummyItemForSchemes(int position) {
         return new DummyItem(schemes_list[position], schemes_names[position], schemes_content[position]);
     }
-
     /**
      * A dummy item representing a piece of content.
      */

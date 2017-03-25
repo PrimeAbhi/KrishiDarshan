@@ -9,13 +9,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import tcs.krishidarshan.dummy.DummyContent;
 
 public class CropsActivity extends AppCompatActivity implements KhariffFragment.OnListFragmentInteractionListener, RabiFragment.OnListRabiFragmentInteractionListener, ZaidKhariffFragment.OnListZaidKhariffFragmentInteractionListener, ZaidRabiFragment.OnListZaidRabiFragmentInteractionListener {
-
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -25,8 +22,6 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -50,7 +45,6 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
     }
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -104,7 +98,7 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item, int position) {
         //Title Strings
-        String[] str = {"Jowar", "Bajra", "Rice","Maize","Groundnut","Cotton","Jute" };
+        String[] str = {"Jowar", "Bajra", "Rice", "Maize", "Groundnut", "Cotton", "Jute"};
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
@@ -130,35 +124,34 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
             case 6:
                 intent.putExtra("url", "file:///android_res/raw/jute.html");
                 break;
-
         }
         startActivity(intent);
     }
 
     @Override
     public void onListRabiFragmentInteraction(DummyContent.DummyItem item, int position) {
-        String[] str = {"Wheat","Barley","Gram","Mustard","Peas","Potato"};
+        String[] str = {"Wheat", "Barley", "Gram", "Mustard", "Peas", "Potato"};
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
         switch (position) {
             case 0:
-                intent.putExtra("url","file:///android_res/raw/wheat.html");
+                intent.putExtra("url", "file:///android_res/raw/wheat.html");
                 break;
             case 1:
-                intent.putExtra("url","file:///android_res/raw/barley.html");
+                intent.putExtra("url", "file:///android_res/raw/barley.html");
                 break;
             case 2:
-                intent.putExtra("url","file:///android_res/raw/gram.html");
+                intent.putExtra("url", "file:///android_res/raw/gram.html");
                 break;
             case 3:
-                intent.putExtra("url","file:///android_res/raw/mustard.html");
+                intent.putExtra("url", "file:///android_res/raw/mustard.html");
 
             case 4:
-                intent.putExtra("url","file:///android_res/raw/peas.html");
+                intent.putExtra("url", "file:///android_res/raw/peas.html");
                 break;
             case 5:
-                intent.putExtra("url","file:///android_res/raw/potato.html");
+                intent.putExtra("url", "file:///android_res/raw/potato.html");
                 break;
 
         }
@@ -167,7 +160,7 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
 
     @Override
     public void onListZaidKhariffFragmentInteraction(DummyContent.DummyItem item, int position) {
-        String[] str = {"Cucumber", "Muskmelon", "Sugarcane", "Watermelon","Sunflower"};
+        String[] str = {"Cucumber", "Muskmelon", "Sugarcane", "Watermelon", "Sunflower"};
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
