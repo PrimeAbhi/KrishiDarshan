@@ -9,10 +9,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import tcs.krishidarshan.dummy.DummyContent;
 
 public class CropsActivity extends AppCompatActivity implements KhariffFragment.OnListFragmentInteractionListener, RabiFragment.OnListRabiFragmentInteractionListener, ZaidKhariffFragment.OnListZaidKhariffFragmentInteractionListener, ZaidRabiFragment.OnListZaidRabiFragmentInteractionListener {
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -22,6 +25,8 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -45,6 +50,7 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
     }
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -98,7 +104,7 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item, int position) {
         //Title Strings
-        String[] str = {"Jowar", "Bajra", "Rice", "Maize", "Groundnut", "Cotton", "Jute"};
+        String[] str = {"Jowar", "Bajra", "Rice","Maize","Groundnut","Cotton","Jute" };
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
@@ -124,34 +130,35 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
             case 6:
                 intent.putExtra("url", "file:///android_res/raw/jute.html");
                 break;
+
         }
         startActivity(intent);
     }
 
     @Override
     public void onListRabiFragmentInteraction(DummyContent.DummyItem item, int position) {
-        String[] str = {"Wheat", "Barley", "Gram", "Mustard", "Peas", "Potato"};
+        String[] str = {"Wheat","Barley","Gram","Mustard","Peas","Potato"};
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
         switch (position) {
             case 0:
-                intent.putExtra("url", "file:///android_res/raw/wheat.html");
+                intent.putExtra("url","file:///android_res/raw/wheat.html");
                 break;
             case 1:
-                intent.putExtra("url", "file:///android_res/raw/barley.html");
+                intent.putExtra("url","file:///android_res/raw/barley.html");
                 break;
             case 2:
-                intent.putExtra("url", "file:///android_res/raw/gram.html");
+                intent.putExtra("url","file:///android_res/raw/gram.html");
                 break;
             case 3:
-                intent.putExtra("url", "file:///android_res/raw/mustard.html");
+                intent.putExtra("url","file:///android_res/raw/mustard.html");
 
             case 4:
-                intent.putExtra("url", "file:///android_res/raw/peas.html");
+                intent.putExtra("url","file:///android_res/raw/peas.html");
                 break;
             case 5:
-                intent.putExtra("url", "file:///android_res/raw/potato.html");
+                intent.putExtra("url","file:///android_res/raw/potato.html");
                 break;
 
         }
@@ -160,24 +167,21 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
 
     @Override
     public void onListZaidKhariffFragmentInteraction(DummyContent.DummyItem item, int position) {
-        String[] str = {"Cucumber", "Muskmelon", "Sugarcane", "Watermelon", "Sunflower"};
+        String[] str = {"Asparagus", "Muskmelon", "Onion","Sunflower"};
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
         switch (position) {
             case 0:
-                intent.putExtra("url", "file:////android_res/raw/cucumber.html");
+                intent.putExtra("url", "file:////android_res/raw/asparagus.html");
                 break;
             case 1:
                 intent.putExtra("url", "file:////android_res/raw/muskmelon.html");
                 break;
             case 2:
-                intent.putExtra("url", "file:////android_res/raw/sugarcane.html");
+                intent.putExtra("url", "file:////android_res/raw/onion.html");
                 break;
             case 3:
-                intent.putExtra("url", "file:////android_res/raw/watermelon1.html");
-                break;
-            case 4:
                 intent.putExtra("url", "file:////android_res/raw/sunflower.html");
                 break;
         }
@@ -186,15 +190,22 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
 
     @Override
     public void onListZaidRabiFragmentInteraction(DummyContent.DummyItem item, int position) {
-        String[] str = {"Har Ki Pauri", "Mansa Devi Temple", "Bharat Mata Mandir", "Chandi Devi Temple",
-                "Vaishno Devi Temple", "Daksha Temple", "Shantikunj", "Gau Ghat",
-                "Kushavarta Ghat", "Vishnu Ghat", "Asthi Pravah Ghat", "Subhash Ghat", "GKV", "FET,GKV"};
+        String[] str = {"Tomato", "Watermelon", "Cucumber", "Sugarcane"};
 
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("title", str[position]);
         switch (position) {
             case 0:
-                intent.putExtra("url", "<html><body><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Har Ki Pauri is a famous ghat on the banks of the Ganges in Haridwar in Uttarakhand state in India. This revered place is the major landmark of the holy city of Haridwar.<br/>Har Ki Pauri is also the area where thousands of pilgrims converge and the festivities commence during the Kumbha Mela, which takes place every twelve years, and the Ardh Kumbh Mela, which takes place every six years and the Punjabi festival of Vaisakhi, a harvest festival occurring every year in the month of April .</p><h3 style=\"text-align:center; color:#03A9F4;\">The Ganga Aarti</h3><img style=\"width:100%;\" src=\"file:///android_res/drawable/bg.jpg\"/><p style=\"color:#646464;\">Each evening at sunset priests perform Ganga Aarti here, when lights are set on the water to drift downstream. A large number of people gather on both the banks of river Ganges to sing its praises. The priests hold large fire bowls in their hands, the gongs in the temples at the Ghat start ringing and the chants flowing out of lips fill the air. People float earthen Diyas, with burning flickers and flowers in them as a symbol of hope and wishes .The golden hues of floral diyas reflected in the river Ganges presents spectacular view.</p><strong><p style=\"color:#646464;\">Keep Ganga Clean.<br/>Take a pledge to protect your local water bodies and environment, and to inspire your friends, family and community to do the same.</br></br></br></br></p></strong></body></html>");
+                intent.putExtra("url", "file:////android_res/raw/tomato.html");
+                break;
+            case 1:
+                intent.putExtra("url", "file:////android_res/raw/watermelon.html");
+                break;
+            case 2:
+                intent.putExtra("url", "file:////android_res/raw/cucumber.html");
+                break;
+            case 3:
+                intent.putExtra("url", "file:////android_res/raw/sugarcane.html");
                 break;
         }
         startActivity(intent);

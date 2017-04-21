@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
          editor = preferences.edit();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        if(!preferences.getString("pref_name","pref_default_name").isEmpty()){
+        if(!preferences.getString("pref_name","").isEmpty()){
             finish();
             startActivity(new Intent(this,MainActivity.class));
         }

@@ -42,9 +42,19 @@
 
         <activity
             android:name=".SchemesActivity"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity"
-            android:label="Schemes"
-            android:theme="@style/AppTheme" />
+            android:label="Schemes And Services"/>
+        <activity
+            android:name=".Alert"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"
+            android:label="Alert News"/>
+        <activity
+            android:name=".Market"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"
+            android:label="Market"/>
 
         <activity
             android:name=".WeatherActivity"

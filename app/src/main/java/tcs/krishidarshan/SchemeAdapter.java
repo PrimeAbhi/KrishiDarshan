@@ -27,14 +27,13 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.crops_item_card, parent, false);
+                .inflate(R.layout.schemes_card, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setImageResource(holder.mItem.id);
         holder.mContentView.setText(holder.mItem.content);
         holder.mContentViewDetail.setText(holder.mItem.content_detail);
     }
@@ -56,27 +55,31 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.ViewHolder
             super(view);
             mView = view;
             mContext = view.getContext();
-            mIdView = (ImageView) view.findViewById(R.id.crops_image);
+           mIdView = (ImageView) view.findViewById(R.id.crops_image);
             mContentView = (TextView) view.findViewById(R.id.crops_name);
             mContentViewDetail = (TextView) view.findViewById(R.id.crops_detail);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    String[] schemes_names = {"Crops", "Weather", "Market Price", "ABC"};
+                    String[] schemes_names = {"PradhanMantri Fasal Bima Yojna", "Rashtriya Krishi Vikas Yojana", "PradhanMantri Awas Yojana", "Pradhan Mantri Jan Dhan Yojana"};
                     Intent intent = new Intent(mContext, DetailActivity.class);
                     intent.putExtra("title", schemes_names[position]);
                     switch (position) {
                         case 0:
-                            intent.putExtra("url", "file:///android_res/raw/jowar.html");
+                            intent.putExtra("url", "file:////android_res/raw/pradhanmantrifasalbimayojna.html");
                             mContext.startActivity(intent);
                             break;
                         case 1:
-                            intent.putExtra("url", "file:///android_res/raw/jowar.html");
+                            intent.putExtra("url", "file:////android_res/raw/rashtriya_krishi_vikas_yojna.html");
+                            mContext.startActivity(intent);
+                            break;
+                        case 2:
+                            intent.putExtra("url",  "file:////android_res/raw/pradhanmantri_awas_yojana.html");
                             mContext.startActivity(intent);
                             break;
                         case 3:
-                            intent.putExtra("url", "file:///android_res/raw/jowar.html");
+                            intent.putExtra("url", "file:////android_res/raw/pradhanmantri_jan_dhan_yojana.html");
                             mContext.startActivity(intent);
                             break;
                     }
