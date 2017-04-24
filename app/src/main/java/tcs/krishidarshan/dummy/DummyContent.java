@@ -25,6 +25,7 @@ public class DummyContent {
     private static int[] item_list = {R.drawable.crops, R.drawable.weather_bg, R.drawable.marketlogo, R.drawable.schemelogo};
 
     //Khariff Items
+
     public static final List<DummyItem> KHARIFF_ITEMS = new ArrayList<>();
     private static String[] khariff_item_names = {"Jowar", "Bajra", "Rice", "Maize", "Groundnut", "Cotton","Jute"};
     private static int[] khariff_item_list = {R.drawable.jowar, R.drawable.bajra, R.drawable.basmati, R.drawable.maize,R.drawable.groundnut,R.drawable.cotton,R.drawable.jute};
@@ -45,7 +46,7 @@ public class DummyContent {
             "Time Required:40-45  Days  \n"+"Temperature   :57-64  °F",
             "Time Required:75-90  Days  \n"+"Temperature   :54-61  °F",
             "Time Required:30-40  Days  \n"+"Temperature   :77-95  °F",
-            "Time Required:00-00  Days  \n"+"Temperature   :72-86  °F",
+            "Time Required:20-30  Days  \n"+"Temperature   :72-86  °F",
             "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F",
             "Time Required:130-160 Days  \n"+"Temperature   :75-77      °F"
     };

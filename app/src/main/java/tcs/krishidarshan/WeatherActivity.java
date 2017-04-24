@@ -1,6 +1,7 @@
 package tcs.krishidarshan;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,17 +12,20 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -43,7 +47,7 @@ import java.util.List;
 
 public class WeatherActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener,
         GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener {
-
+    private  Context mContext;
     LatLng currentLocation = null;
     private GoogleMap mMap;
     private String username;
@@ -55,6 +59,18 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
     SharedPreferences.Editor editor;
     boolean alert_status=true;
     boolean status=true;
+
+    Location location = null; // location
+    double latitude; // latitude
+    double longitude; // longitude
+
+    // The minimum distance to change Updates in meters
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
+
+    // The minimum time between updates in milliseconds
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minute
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +102,13 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
         super.onResume();
     }
 
+    public void getLocation(){
+
+
+
+
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -96,7 +119,7 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(true);
-
+GPSTracker gps=new GPSTracker(this);
         LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
         boolean gps_enabled = false;
         boolean network_enabled = false;
@@ -123,7 +146,9 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();
+                    Intent intent = new Intent(
+                            Settings.ACTION_SETTINGS);
+                    startActivity(intent);
                 }
             });
 
@@ -134,7 +159,9 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
         } else {
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                currentLocation = new LatLng(28, 77);
+                currentLocation = new LatLng(29.9457, 78.1642);
+              //  currentLocation = new LatLng(gps.getLatitude(), gps.getLongitude());
+
             } else {
                 GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
                         .addApi(LocationServices.API)
@@ -144,13 +171,28 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
                 if (location != null) {
                     currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
                 } else {
-                    currentLocation = new LatLng(28, 77);
+                    currentLocation = new LatLng(78.1642, 78.1642);
                 }
             }
 
             String defaultLocation = prefs.getString("pref_location_key",getString(R.string.pref_default_location_value));
             setCurrentLocation(this, defaultLocation);
+           /* currentLocation = new LatLng(gps.getLatitude(), gps.getLongitude());
+            onMapLongClick(currentLocation);
+            currentMarker = mMap.addMarker(new MarkerOptions().position(currentLocation));
+            mMap.setInfoWindowAdapter(new tcs.krishidarshan.CurrentConditionsView(this, getApplicationContext(), currentLocation));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f), new GoogleMap.CancelableCallback() {
 
+                @Override
+                public void onFinish() {
+                    currentMarker.showInfoWindow();
+                }
+
+                @Override
+                public void onCancel() {
+
+                }
+            });*/
         }
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +207,7 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
                 }
                 else {
                     if(et_change_location.getText().toString().isEmpty()) {
-                        Toast.makeText(getApplicationContext(),"khaali",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Empty",Toast.LENGTH_LONG).show();
                         et_change_location.setVisibility(View.INVISIBLE);
                         status=true;
                         return;
@@ -281,9 +323,8 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
         } catch (Exception ex) {
         }
 
-        if (!gps_enabled && !network_enabled) {
+        if (!gps_enabled || !network_enabled) {
             // Set current location to Austin TX by default if location services are disabled.
-
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(getString(R.string.alert_gps_internet_enable));
             builder.setCancelable(false);
@@ -291,12 +332,16 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();
+                    Intent intent = new Intent(
+                            Settings.ACTION_SETTINGS);
+                    startActivity(intent);
+                    onRestart();
                 }
             });
 
             AlertDialog alert = builder.create();
             alert.show();
+
 
         }
 
@@ -381,5 +426,6 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
         }
 
     }
+
 
 }

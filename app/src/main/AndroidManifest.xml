@@ -51,6 +51,11 @@
             android:parentActivityName=".MainActivity"
             android:label="Alert News"/>
         <activity
+            android:name=".AboutUs"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"
+            android:label="About Us"/>
+        <activity
             android:name=".Market"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity"

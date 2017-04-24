@@ -31,11 +31,11 @@
     </string>
     <string name="welcome">Welcome !</string>
     <string name="pref_title_display_name">Location</string>
-    <string name="pref_default_location_value">New Delhi</string>
+    <string name="pref_default_location_value">Haridwar</string>
     <string name="pref_location_value">Haridwar</string>
     <string name="pref_location_key">pref_location_key</string>
     <string name="action_search">Search</string>
-    <string name="alert_gps_internet_enable">please enable GPS and Internet to access Weather Information</string>
+    <string name="alert_gps_internet_enable">Please Enable GPS and Internet to access Weather Information Click Settings</string>
     <string name="weather_first_time_alert">"Get the current weather for any point on the map. Simply long press " +
                     "to drop a marker. Tap anywhere on the map to dismiss the current pin"</string>
 

@@ -30,7 +30,7 @@ public class DetailActivity extends AppCompatActivity {
             url = data.getString("url");
             setTitle(title);
             WebSettings webSettings = this.webView.getSettings();
-            webSettings.setJavaScriptEnabled(true);
+           // webSettings.setJavaScriptEnabled(true);
             webSettings.setBuiltInZoomControls(true);
             webSettings.setSupportZoom(true);
             webView.loadUrl(url);

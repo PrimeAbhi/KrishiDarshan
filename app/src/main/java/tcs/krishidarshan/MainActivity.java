@@ -18,7 +18,7 @@ import android.widget.Toast;
 import tcs.krishidarshan.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity {
-
+    private      static         boolean showToast=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
         animationDrawable.start();
         initViews();
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String n=prefs.getString("pref_name","@string/pref_name");
-        Toast.makeText(this,"Welcome "+n,Toast.LENGTH_LONG).show();
+        if(showToast) {
+            String n = prefs.getString("pref_name", "@string/pref_name");
+            Toast.makeText(this, "Welcome " + n, Toast.LENGTH_LONG).show();
+                             showToast=false;
+        }
 
 
     }
@@ -61,11 +64,12 @@ public class MainActivity extends AppCompatActivity {
            startActivity(new Intent(this,SettingsActivity.class));
         }
         if(id==R.id.about_us){
-            return true;
+            startActivity(new Intent(this,AboutUs.class));
         }
         if(id==R.id.alert){
             startActivity(new Intent(this,Alert.class));
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

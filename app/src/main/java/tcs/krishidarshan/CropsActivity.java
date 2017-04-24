@@ -199,7 +199,7 @@ public class CropsActivity extends AppCompatActivity implements KhariffFragment.
                 intent.putExtra("url", "file:////android_res/raw/tomato.html");
                 break;
             case 1:
-                intent.putExtra("url", "file:////android_res/raw/watermelon.html");
+                intent.putExtra("url", "file:////android_res/raw/watermelon1.html");
                 break;
             case 2:
                 intent.putExtra("url", "file:////android_res/raw/cucumber.html");
