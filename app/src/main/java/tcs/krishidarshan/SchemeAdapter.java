@@ -13,6 +13,8 @@ import java.util.List;
 
 import tcs.krishidarshan.dummy.DummyContent.DummyItem;
 
+import static tcs.krishidarshan.MyApplication.context;
+
 /**
  * Created by Abhishek on 24-03-2017.
  */
@@ -55,14 +57,18 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.ViewHolder
             super(view);
             mView = view;
             mContext = view.getContext();
-           mIdView = (ImageView) view.findViewById(R.id.crops_image);
+            mIdView = (ImageView) view.findViewById(R.id.crops_image);
             mContentView = (TextView) view.findViewById(R.id.crops_name);
             mContentViewDetail = (TextView) view.findViewById(R.id.crops_detail);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    String[] schemes_names = {"PradhanMantri Fasal Bima Yojna", "Rashtriya Krishi Vikas Yojana", "PradhanMantri Awas Yojana", "Pradhan Mantri Jan Dhan Yojana"};
+                    String[] schemes_names = {context.getResources().getString(R.string.pmfby),
+                            context.getResources().getString(R.string.rkvy),
+                            context.getResources().getString(R.string.pay),
+                            context.getResources().getString(R.string.pmjdy)
+                    };
                     Intent intent = new Intent(mContext, DetailActivity.class);
                     intent.putExtra("title", schemes_names[position]);
                     switch (position) {
@@ -75,7 +81,7 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.ViewHolder
                             mContext.startActivity(intent);
                             break;
                         case 2:
-                            intent.putExtra("url",  "file:////android_res/raw/pradhanmantri_awas_yojana.html");
+                            intent.putExtra("url", "file:////android_res/raw/pradhanmantri_awas_yojana.html");
                             mContext.startActivity(intent);
                             break;
                         case 3:
@@ -93,4 +99,3 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.ViewHolder
         }
     }
 }
-

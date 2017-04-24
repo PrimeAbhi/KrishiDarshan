@@ -20,16 +20,16 @@ import java.util.Map;
 
 import tcs.krishidarshan.model.DailyForecast;
 
+import static tcs.krishidarshan.MyApplication.context;
+
 /**
  * Displays ten day forecast for current location.
  */
 public class ForecastActivity extends AppCompatActivity {
 
     private String basePath;
-
     private ListView mListView;
     private Gson gson;
-
     private String username;
     private String password;
 
@@ -38,7 +38,7 @@ public class ForecastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forecast);
 
-        this.setTitle("Forecast");
+        this.setTitle(context.getString(R.string.forecast));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -61,7 +61,6 @@ public class ForecastActivity extends AppCompatActivity {
      * @param coordinate latitude and longitude of selected location.
      */
     private void setTenDayForecast(LatLng coordinate) {
-
         String path = "/v1/geocode/{latitude}/{longitude}/forecast/daily/10day.json"
                 .replaceAll("\\{latitude\\}", ((Double) coordinate.latitude).toString())
                 .replaceAll("\\{longitude\\}", ((Double) coordinate.longitude).toString());
@@ -87,13 +86,11 @@ public class ForecastActivity extends AppCompatActivity {
                         mListView.setAdapter(forecastAdapter);
                     }
                 });
-
             }
 
             @Override
             public void onFailure(Response response, Throwable t, JSONObject extendedInfo) {
                 if (response.getStatus() == 401) {
-
                 } else if (response.getStatus() == 400) {
                     return;
                 }

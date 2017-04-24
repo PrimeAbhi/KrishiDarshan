@@ -4,20 +4,66 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_change_location">Change Location</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="name">Name</string>
+    <string name="mobile">Mobile</string>
+    <string name="city">City</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="or">OR</string>
+    <string name="prompt_name">Name Required</string>
+    <string name="prompt_city">City Required</string>
+    <string name="prompt_mobile">Mobile Required</string>
+    <string name="name_hint">Full Name</string>
+    <string name="mobile_hint">Mobile Number</string>
+    <string name="city_hint">City Name</string>
     <string name="action_sign_in">Login</string>
-    <string name="action_register">Register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">The password must be six characters long containing special characters, letters and numbers</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">Contacts permissions are needed for providing email completions.</string>
 
-    <string name="welcome_home">Welcome to KrishiDarshan\n You are Important To All</string>
+    <string name="crops">Crops</string>
+    <string name="weather">Weather</string>
+    <string name="market">Market</string>
+    <string name="schemes">Schemes</string>
+
+    <string name="khariff">Khariff</string>
+    <string name="rabi">Rabi</string>
+    <string name="zaid_khariff">Zaid (Khariff)</string>
+    <string name="zaid_rabi">Zaid (Rabi)</string>
+
+    <string name="jowar">Jowar</string>
+    <string name="bajra">Bajra</string>
+    <string name="rice">Rice</string>
+    <string name="maize">Maize</string>
+    <string name="groundnut">Groundnut</string>
+    <string name="cotton">Cotton</string>
+    <string name="jute">Jute</string>
+
+    <string name="wheat">Wheat</string>
+    <string name="barley">Barley</string>
+    <string name="gram">Gram</string>
+    <string name="mustard">Mustard</string>
+    <string name="peas">Peas</string>
+    <string name="patato">Patato</string>
+
+    <string name="asparagus">Asparagus</string>
+    <string name="muskmelon">Muskmelon</string>
+    <string name="onion">Onion</string>
+    <string name="sunflower">Sunflower</string>
+
+    <string name="tamato">Tamato</string>
+    <string name="watermelon">Watermelon</string>
+    <string name="cucumber">Cucumber</string>
+    <string name="sugarcane">Sugarcane</string>
+
+    <string name="pmfby">PradhanMantri Fasal Bima Yojna</string>
+    <string name="pmfby_detail">The PMFBY will replace the existing two schemes National Agricultural Insurance Scheme as well as the Modified NAIS.</string>
+    <string name="rkvy">Rashtriya Krishi Vikas Yojana</string>
+    <string name="rkvy_detail">Achieve 4% annual growth in agriculture through development of Agriculture and its allied sectors during the XI Plan period.</string>
+    <string name="pay">PradhanMantri Awas Yojana</string>
+    <string name="pay_detail">Provides financial assistance to rural poor for constructing their houses themselves.</string>
+    <string name="pmjdy">Pradhan Mantri Jan Dhan Yojana</string>
+    <string name="pmjdy_detail">National Mission for Financial Inclusion to ensure access to financial services, namely Banking Savings and Deposit Accounts, Remittance, Credit, Insurance, Pension in an affordable manner.</string>
+
     <string name="loading">Loading</string>
 
     <!-- Strings related to Settings -->
@@ -90,6 +136,7 @@
 
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_header_preference">Change Preference</string>
 
     <string name="pref_title_new_message_notifications">New message notifications</string>
 
@@ -100,6 +147,45 @@
     <string name="title_activity_crops">Crops</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="alert">There is no alert at present.</string>
+    <string name="alerts">Alerts</string>
+    <string name="loc_unk">Location Unkown</string>
+    <string name="feel">Feels Like</string>
+    <string name="humid">Humidity</string>
+    <string name="wind">Wind</string>
+    <string name="today">Today</string>
+    <string name="about_us">About Us</string>
+
+    <string name="change_name">Change Name</string>
+    <string name="change_mobile">Change Mobile</string>
+    <string name="change_city">Change City</string>
+
+    <string name="forecast">Forecast</string>
+    <string name="time_req">Time Required</string>
+    <string name="temp_req">Temperature Required</string>
+
+    <string name="con_1">Time Required:65-75 Days \nTemperature:77-89°F</string>
+    <string name="con_2">Time Required:75-90 Days \nTemperature:68-86°F</string>
+    <string name="con_3">Time Required:35-40 Days \nTemperature:68-95°F</string>
+    <string name="con_4">Time Required:00-00 Days \nTemperature:72-86°F</string>
+    <string name="con_5">Time Required:30-50 Days \nTemperature:80-86°F</string>
+    <string name="con_6">Time Required:130-160 Days \nTemperature:75-77°F</string>
+    <string name="con_7">Time Required:122-150 Days \nTemperature:77-86°F</string>
+    <string name="con_8">Time Required:40-45 Days \nTemperature:57-64°F</string>
+    <string name="con_9">Time Required:75-90 Days \nTemperature:54-61°F</string>
+    <string name="con_10">Time Required:30-40 Days \nTemperature:77-95°F</string>
+    <string name="con_11">Time Required:00-00 Days \nTemperature:72-86°F</string>
+    <string name="con_12">Time Required:30-50 Days \nTemperature:80-86°F</string>
+    <string name="con_13">Time Required:130-160 Days \nTemperature:75-77°F</string>
+    <string name="con_14">Time Required:65-75 Days \nTemperature:77-89°F</string>
+    <string name="con_15">Time Required:75-90 Days \nTemperature:68-86°F</string>
+    <string name="con_16">Time Required:35-40 Days \nTemperature:68-95°F</string>
+    <string name="con_17">Time Required:30-50 Days \nTemperature:80-86°F</string>
+    <string name="con_18">Time Required:65-75 Days \nTemperature:77-89°F</string>
+    <string name="con_19">Time Required:75-90 Days \nTemperature:68-86°F</string>
+    <string name="con_20">Time Required:35-40 Days \nTemperature:68-95°F</string>
+    <string name="con_21">Time Required:30-50 Days \nTemperature:80-86°F</string>
 
 
     //CROPS VALUES

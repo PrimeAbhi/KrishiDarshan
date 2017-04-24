@@ -22,7 +22,6 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/id"
             android:layout_toStartOf="@+id/id"
-            android:text="Crops"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="20dp"
             android:textStyle="normal|bold" />
@@ -37,7 +36,6 @@
             android:layout_marginRight="8dp"
             android:layout_toLeftOf="@+id/crops_image"
             android:layout_toStartOf="@+id/crops_image"
-            android:text="They are useful"
             android:textColor="@color/colorPrimary"
             android:textSize="17dp" />
 

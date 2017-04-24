@@ -24,24 +24,23 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="7dp"
         android:layout_marginBottom="28dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="30dp"
+        android:elevation="8dp"
         app:borderWidth="0dp"
         app:fabSize="normal"
-        android:elevation="8dp"
         app:srcCompat="@android:drawable/ic_dialog_map" />
 
     <android.support.design.widget.TextInputEditText
         android:id="@+id/et_location"
-        android:hint="@string/title_change_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginBottom="25dp"
-        android:layout_marginStart="75dp"
         android:layout_marginLeft="10dp"
-        android:visibility="invisible"
-        />
+        android:layout_marginStart="75dp"
+        android:hint="@string/title_change_location"
+        android:visibility="invisible" />
 
 </fragment>

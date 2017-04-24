@@ -84,7 +84,5 @@ public class ZaidKhariffFragment extends Fragment {
     public interface OnListZaidKhariffFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListZaidKhariffFragmentInteraction(DummyItem item, int position);
-
     }
 }
-

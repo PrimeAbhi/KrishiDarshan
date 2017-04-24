@@ -3,9 +3,9 @@ package tcs.krishidarshan;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.view.MenuItem;
 
 /**
  * Created by Abhishek on 22-03-2017.
@@ -30,13 +30,13 @@ public class DetailActivity extends AppCompatActivity {
             url = data.getString("url");
             setTitle(title);
             WebSettings webSettings = this.webView.getSettings();
-           // webSettings.setJavaScriptEnabled(true);
+            // webSettings.setJavaScriptEnabled(true);
             webSettings.setBuiltInZoomControls(true);
             webSettings.setSupportZoom(true);
             webView.loadUrl(url);
         }
-
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

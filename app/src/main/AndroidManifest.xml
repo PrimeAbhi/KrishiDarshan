@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -42,14 +43,16 @@
 
         <activity
             android:name=".SchemesActivity"
-            android:theme="@style/AppTheme"
+            android:label="@string/schemes"
             android:parentActivityName=".MainActivity"
-            android:label="Schemes And Services"/>
+            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".Alert"
-            android:theme="@style/AppTheme"
+            android:label="@string/alerts"
             android:parentActivityName=".MainActivity"
-            android:label="Alert News"/>
+            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".AboutUs"
             android:theme="@style/AppTheme"
@@ -57,19 +60,19 @@
             android:label="About Us"/>
         <activity
             android:name=".Market"
-            android:theme="@style/AppTheme"
+            android:label="@string/market"
             android:parentActivityName=".MainActivity"
-            android:label="Market"/>
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".WeatherActivity"
-            android:label="Weather"
+            android:label="@string/title_activity_map"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".SettingsActivity"
-            android:label="Settings"
+            android:label="@string/action_settings"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -88,7 +91,7 @@
 
         <activity
             android:name=".ForecastActivity"
-            android:label="Forecast"
+            android:label="@string/forecast"
             android:parentActivityName=".WeatherActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

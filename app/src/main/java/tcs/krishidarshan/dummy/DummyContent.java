@@ -9,6 +9,8 @@ import java.util.List;
 
 import tcs.krishidarshan.R;
 
+import static tcs.krishidarshan.MyApplication.context;
+
 /**
  * Helper class for providing sample content for user interfaces created by
  * Android template wizards.
@@ -21,71 +23,74 @@ public class DummyContent {
      */
     //Main Activity Items
     public static final List<DummyItem> ITEMS = new ArrayList<>();
-    private static String[] item_names = {"Crops", "Weather", "Market", "Schemes"};
+    private static String[] item_names = {context.getResources().getString(R.string.crops), context.getResources().getString(R.string.weather),
+            context.getResources().getString(R.string.market), context.getResources().getString(R.string.schemes)};
     private static int[] item_list = {R.drawable.crops, R.drawable.weather_bg, R.drawable.marketlogo, R.drawable.schemelogo};
 
     //Khariff Items
-
     public static final List<DummyItem> KHARIFF_ITEMS = new ArrayList<>();
-    private static String[] khariff_item_names = {"Jowar", "Bajra", "Rice", "Maize", "Groundnut", "Cotton","Jute"};
-    private static int[] khariff_item_list = {R.drawable.jowar, R.drawable.bajra, R.drawable.basmati, R.drawable.maize,R.drawable.groundnut,R.drawable.cotton,R.drawable.jute};
+    private static String[] khariff_item_names = {context.getResources().getString(R.string.jowar), context.getResources().getString(R.string.bajra), context.getResources().getString(R.string.rice),
+            context.getResources().getString(R.string.maize), context.getResources().getString(R.string.groundnut), context.getResources().getString(R.string.cotton),
+            context.getResources().getString(R.string.jute)};
+    private static int[] khariff_item_list = {R.drawable.jowar, R.drawable.bajra, R.drawable.basmati, R.drawable.maize, R.drawable.groundnut, R.drawable.cotton, R.drawable.jute};
     private static String[] khariff_item_content = {
-                   "Time Required:65-75  Days  \n"+"Temperature   :77-89  °F",
-                   "Time Required:75-90  Days  \n"+"Temperature   :68-86  °F",
-                   "Time Required:35-40  Days  \n"+"Temperature   :68-95  °F",
-                   "Time Required:00-00  Days  \n"+"Temperature   :72-86  °F",
-                   "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F",
-                   "Time Required:130-160 Days  \n"+"Temperature   :75-77      °F",
-                   "Time Required:122-150 Days  \n"+"Temperature   :77-86      °F"};
-
+            context.getResources().getString(R.string.con_1),
+            context.getResources().getString(R.string.con_2),
+            context.getResources().getString(R.string.con_3),
+            context.getResources().getString(R.string.con_4),
+            context.getResources().getString(R.string.con_5),
+            context.getResources().getString(R.string.con_6),
+            context.getResources().getString(R.string.con_7)
+    };
     //Rabi Items
     public static final List<DummyItem> RABI_ITEMS = new ArrayList<>();
-    private static String[] rabi_names = {"Wheat", "Barley", "Gram", "Mustard","Peas","Potato"};
-    private static int[] rabi_list = {R.drawable.wheat, R.drawable.barley, R.drawable.gram, R.drawable.mustard,R.drawable.peas,R.drawable.potato};
+    private static String[] rabi_names = {context.getResources().getString(R.string.wheat), context.getResources().getString(R.string.barley), context.getResources().getString(R.string.gram),
+            context.getResources().getString(R.string.mustard), context.getResources().getString(R.string.peas), context.getResources().getString(R.string.patato)};
+    private static int[] rabi_list = {R.drawable.wheat, R.drawable.barley, R.drawable.gram, R.drawable.mustard, R.drawable.peas, R.drawable.potato};
     private static String[] rabi_content = {
-            "Time Required:40-45  Days  \n"+"Temperature   :57-64  °F",
-            "Time Required:75-90  Days  \n"+"Temperature   :54-61  °F",
-            "Time Required:30-40  Days  \n"+"Temperature   :77-95  °F",
-            "Time Required:20-30  Days  \n"+"Temperature   :72-86  °F",
-            "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F",
-            "Time Required:130-160 Days  \n"+"Temperature   :75-77      °F"
+            context.getResources().getString(R.string.con_8),
+            context.getResources().getString(R.string.con_9),
+            context.getResources().getString(R.string.con_10),
+            context.getResources().getString(R.string.con_11),
+            context.getResources().getString(R.string.con_12),
+            context.getResources().getString(R.string.con_13)
     };
 
     //Zaid Khariff Items
     public static final List<DummyItem> ZAID_KHARIFF_ITEMS = new ArrayList<>();
-    private static String[] zaid_khariff_names = {"Asparagus", "Muskmelon", "Onion","Sunflower"};
+    private static String[] zaid_khariff_names = {context.getResources().getString(R.string.asparagus), context.getResources().getString(R.string.muskmelon),
+            context.getResources().getString(R.string.onion), context.getResources().getString(R.string.sunflower)};
     private static int[] zaid_khariff_list = {R.drawable.logoasparagus, R.drawable.muskmelon, R.drawable.logoonions, R.drawable.sunflower};
     private static String[] zaid_khariff_content = {
-            "Time Required:65-75  Days  \n"+"Temperature   :77-89  °F",
-            "Time Required:75-90  Days  \n"+"Temperature   :68-86  °F",
-            "Time Required:35-40  Days  \n"+"Temperature   :68-95  °F",
-            "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F"
+            context.getResources().getString(R.string.con_14),
+            context.getResources().getString(R.string.con_15),
+            context.getResources().getString(R.string.con_16),
+            context.getResources().getString(R.string.con_17)
     };
-
 
     //Zaid Rabi Items
     public static final List<DummyItem> ZAID_RABI_ITEMS = new ArrayList<>();
-    private static String[] zaid_rabi_names = {"Tomato", "Watermelon", "Cucumber", "Sugarcane"};
+    private static String[] zaid_rabi_names = {context.getResources().getString(R.string.tamato), context.getResources().getString(R.string.watermelon),
+            context.getResources().getString(R.string.cucumber), context.getResources().getString(R.string.sugarcane)};
     private static int[] zaid_rabi_list = {R.drawable.logotomato, R.drawable.watermelonimage, R.drawable.cucumberimage, R.drawable.sugarcaneimage};
     private static String[] zaid_rabi_content = {
-            "Time Required:65-75  Days  \n"+"Temperature   :77-89  °F",
-            "Time Required:75-90  Days  \n"+"Temperature   :68-86  °F",
-            "Time Required:35-40  Days  \n"+"Temperature   :68-95  °F",
-            "Time Required:30-50  Days  \n"+"Temperature   :80-86  °F"
-
+            context.getResources().getString(R.string.con_18),
+            context.getResources().getString(R.string.con_19),
+            context.getResources().getString(R.string.con_20),
+            context.getResources().getString(R.string.con_21)
     };
-
-
 
     //Schemes
     public static final List<DummyItem> SCHEMES = new ArrayList<>();
-    private static String[] schemes_names = {"PradhanMantri Fasal Bima Yojna", "Rashtriya Krishi Vikas Yojana", "PradhanMantri Awas Yojana", "Pradhan Mantri Jan Dhan Yojana"};
+    private static String[] schemes_names = {context.getResources().getString(R.string.pmfby), context.getResources().getString(R.string.rkvy),
+            context.getResources().getString(R.string.pay), context.getResources().getString(R.string.pmjdy),
+    };
     private static int[] schemes_list = {R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg};
     private static String[] schemes_content = {
-            "The PMFBY will replace the existing two schemes National Agricultural Insurance Scheme as well as the Modified NAIS.",
-            "Achieve 4% annual growth in agriculture through development of Agriculture and its allied sectors during the XI Plan period",
-            "Provides financial assistance to rural poor for constructing their houses themselves.",
-            "National Mission for Financial Inclusion to ensure access to financial services, namely Banking Savings & Deposit Accounts, Remittance, Credit, Insurance, Pension in an affordable manner"
+            context.getResources().getString(R.string.pmfby_detail),
+            context.getResources().getString(R.string.rkvy_detail),
+            context.getResources().getString(R.string.pay_detail),
+            context.getResources().getString(R.string.pmjdy_detail)
     };
 
     private static final int COUNT = 4;
@@ -93,7 +98,7 @@ public class DummyContent {
     private static final int COUNT_RABI = 6;
     private static final int COUNT_ZAIDK = 4;
     private static final int COUNT_ZAIDR = 4;
-    private static final int COUNT_SCHEME=4;
+    private static final int COUNT_SCHEME = 4;
 
     static {
         // Add some sample items.
@@ -109,19 +114,15 @@ public class DummyContent {
         }
         for (int i = 0; i < COUNT_ZAIDK; i++) {
             addItemForZaidKhariff(createDummyItemForZaidKhariff(i));
-
         }
 
         for (int i = 0; i < COUNT_SCHEME; i++) {
             addItemForSchemes(createDummyItemForSchemes(i));
-
         }
 
         for (int i = 0; i < COUNT_ZAIDR; i++) {
             addItemForZaidRabi(createDummyItemForZaidRabi(i));
-
         }
-
     }
 
     private static void addItem(DummyItem item) {
@@ -171,7 +172,6 @@ public class DummyContent {
     private static DummyItem createDummyItemForSchemes(int position) {
         return new DummyItem(schemes_list[position], schemes_names[position], schemes_content[position]);
     }
-
     /**
      * A dummy item representing a piece of content.
      */

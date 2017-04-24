@@ -1,8 +1,5 @@
 package tcs.krishidarshan;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -70,7 +67,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         mZaidKhariffListener = null;
         mZaidRabiListener = listener;
     }
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -159,7 +155,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         return mValues.size();
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final ImageView mIdView;
@@ -194,7 +189,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                                 mContext.startActivity(i2);
                                 break;
                             case 3:
-                                Intent i3 =  new Intent (mContext, SchemesActivity.class);
+                                Intent i3 = new Intent(mContext, SchemesActivity.class);
                                 mContext.startActivity(i3);
                                 break;
                         }
@@ -207,14 +202,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                 mContentView = (TextView) view.findViewById(R.id.crops_name);
                 mContentViewDetail = (TextView) view.findViewById(R.id.crops_detail);
             }
-
         }
 
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'" + mContentViewDetail.getText() + "'";
         }
-
     }
-
 }

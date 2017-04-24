@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import tcs.krishidarshan.dummy.DummyContent;
 import tcs.krishidarshan.dummy.DummyContent.DummyItem;
 
-
 /**
  * Created by Abhishek on 21-03-2017.
  */

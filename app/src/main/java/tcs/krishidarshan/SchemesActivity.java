@@ -12,7 +12,7 @@ import tcs.krishidarshan.dummy.DummyContent;
  * Created by Abhishek on 24-03-2017.
  */
 
-public class SchemesActivity extends AppCompatActivity{
+public class SchemesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,6 @@ public class SchemesActivity extends AppCompatActivity{
         recyclerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             }
         });
     }

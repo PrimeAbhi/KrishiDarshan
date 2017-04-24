@@ -1,6 +1,5 @@
 package tcs.krishidarshan;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -85,7 +84,5 @@ public class ZaidRabiFragment extends Fragment {
     public interface OnListZaidRabiFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListZaidRabiFragmentInteraction(DummyItem item, int position);
-
     }
 }
-

@@ -7,7 +7,7 @@
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:title="Change Name"
+        android:title="@string/change_name"
         />
     <EditTextPreference
         android:capitalize="words"
@@ -16,7 +16,7 @@
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:title="Change Mobile"
+        android:title="@string/change_mobile"
         android:maxLength="10"
         />
 
@@ -29,6 +29,6 @@
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:title="Change City" />
+        android:title="@string/change_city" />
 
 </PreferenceScreen>

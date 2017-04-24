@@ -45,15 +45,12 @@ public class CurrentConditionsView implements GoogleMap.InfoWindowAdapter {
     private Gson gson;
     private String mUsername;
     private String mPassword;
-
     private LayoutInflater mInflater;
     private Context mContext;
     private Activity mActivity;
-
     private CurrentCondition mCurrentCondition;
     private DailyForecast mDailyForecast;
     private LatLng mCoordinate;
-
     private View mView;
 
     public CurrentConditionsView(Activity activity, Context context, LatLng coordinate) {
@@ -73,7 +70,6 @@ public class CurrentConditionsView implements GoogleMap.InfoWindowAdapter {
         gsonBuilder.serializeNulls();
         gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
         gson = gsonBuilder.create();
-
     }
 
     @Override
@@ -88,7 +84,6 @@ public class CurrentConditionsView implements GoogleMap.InfoWindowAdapter {
             setCurrentConditions(marker, mCoordinate);
             setThreeDayForecast(marker, mCoordinate);
         }
-
         return mView;
     }
 
@@ -210,7 +205,6 @@ public class CurrentConditionsView implements GoogleMap.InfoWindowAdapter {
                 }
             }
         });
-
     }
 
     /**
@@ -263,7 +257,6 @@ public class CurrentConditionsView implements GoogleMap.InfoWindowAdapter {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 if (cityName.length() > 20) {
                     locality.setTextSize(10.0f);
                 }

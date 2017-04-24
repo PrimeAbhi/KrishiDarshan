@@ -33,7 +33,6 @@ import tcs.krishidarshan.model.ForecastDaily;
 public class ForecastAdapter extends BaseAdapter {
 
     private Gson gson;
-
     private Context mContext;
     private LayoutInflater mInflater;
     private DailyForecast mDailyForecast;

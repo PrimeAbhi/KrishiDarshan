@@ -17,6 +17,5 @@ public class Market extends AppCompatActivity {
         setContentView(R.layout.market);
         WebView wv=(WebView)findViewById(R.id.mandi);
         wv.loadUrl("http://www.ncdex.com/MarketDataAction_liveSpotPrice.action");
-
     }
 }

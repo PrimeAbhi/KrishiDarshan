@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">कृषि दर्शन</string>
+    <string name="title_activity_map">मौसम</string>
+    <string name="title_activity_settings">सेटिंग्स</string>
+    <string name="title_change_location">स्थान बदलें</string>
+
+    <!-- Strings related to login -->
+    <string name="name">नाम</string>
+    <string name="mobile">मोबाइल</string>
+    <string name="city">शहर</string>
+    <string name="sign_up">साइन अप करें</string>
+    <string name="or">या</string>
+    <string name="prompt_name">अपना नाम इनपुट करें</string>
+    <string name="prompt_city">अपना शहर का नाम इनपुट करें</string>
+    <string name="prompt_mobile">अपना मोबाइल नंबर इनपुट करें</string>
+    <string name="name_hint">पूरा नाम</string>
+    <string name="mobile_hint">मोबाइल नंबर</string>
+    <string name="city_hint">शहर का नाम</string>
+
+    //Main Activity
+    <string name="crops">फसल</string>
+    <string name="weather">मौसम</string>
+    <string name="market">बाजार</string>
+    <string name="schemes">योजनाएं</string>
+
+    <string name="khariff">खरीफ</string>
+    <string name="rabi">रबी</string>
+    <string name="zaid_khariff">ज़ेड (खरीफ)</string>
+    <string name="zaid_rabi">ज़ेड (रबी)</string>
+
+    //Khariff Crops
+    <string name="jowar">ज्वार</string>
+    <string name="bajra">बाजरा</string>
+    <string name="rice">चावल</string>
+    <string name="maize">मक्का</string>
+    <string name="groundnut">मूंगफली</string>
+    <string name="cotton">कपास</string>
+    <string name="jute">जूट</string>
+
+    //Rabi
+    <string name="wheat">गेहूं</string>
+    <string name="barley">जौ</string>
+    <string name="gram">ग्राम</string>
+    <string name="mustard">सरसों</string>
+    <string name="peas">मटर</string>
+    <string name="patato">आलू</string>
+
+    //Zaid-Khariff
+    <string name="asparagus">एस्परैगस</string>
+    <string name="muskmelon">खरबूजा</string>
+    <string name="onion">प्याज</string>
+    <string name="sunflower">सूरजमुखी</string>
+
+    //Zaid-Rabi
+    <string name="tamato">टमाटर</string>
+    <string name="watermelon">तरबूज</string>
+    <string name="cucumber">खीरा</string>
+    <string name="sugarcane">गन्ना</string>
+
+    //Schemes
+    <string name="pmfby">प्रधान मनति फसल बीमा योजना</string>
+    <string name="pmfby_detail">पीएमएफबीवाई मौजूदा दो योजनाओं को राष्ट्रीय कृषि बीमा योजना के साथ-साथ संशोधित एनएआईएस की जगह लेगी।</string>
+    <string name="rkvy">राष्ट्रीय कृषि विकास योजना</string>
+    <string name="rkvy_detail">11 वीं योजना अवधि के दौरान कृषि और उसके संबद्ध क्षेत्रों के विकास के माध्यम से कृषि में 4% वार्षिक विकास हासिल करना।</string>
+    <string name="pay">प्रधान मंत्री आवास योजना</string>
+    <string name="pay_detail">ग्रामीण गरीबों को अपने घरों के निर्माण के लिए वित्तीय सहायता प्रदान करती है।</string>
+    <string name="pmjdy">प्रधान मंत्री जन धन योजना</string>
+    <string name="pmjdy_detail">वित्तीय सेवाओं के लिए राष्ट्रीय मिशन, जो कि वित्तीय सेवाओं तक पहुंच सुनिश्चित करने के लिए है, अर्थात् बैंकिंग बचत और जमा खातों, प्रेषण, क्रेडिट, बीमा, पेंशन एक सस्ती तरीके से।</string>
+
+    <string name="loading">लोड हो रहा है</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">स्थान बदलें</string>
+
+    <string name="pref_title_social_recommendations">सामाजिक सुझावों को सक्षम करें</string>
+    <string name="pref_description_social_recommendations">आपके संदेश इतिहास के आधार पर लोगों से संपर्क करने की अनुशंसाएं</string>
+    <string name="welcome">स्वागत हे !</string>
+    <string name="pref_title_display_name">स्थान</string>
+    <string name="pref_default_location_value">नई दिल्ली</string>
+    <string name="pref_location_value">हरिद्वार</string>
+    <string name="pref_location_key"></string>
+    <string name="action_search">खोज</string>
+    <string name="alert_gps_internet_enable">मौसम की जानकारी तक पहुंचने के लिए कृपया जीपीएस और इंटरनेट सक्षम करें</string>
+    <string name="weather_first_time_alert">नक्शे पर किसी भी बिंदु के लिए वर्तमान मौसम प्राप्त करें। बस लंबे समय से प्रेस करें|
+                    एक मार्कर ड्रॉप करने के लिए। वर्तमान पिन को खारिज करने के लिए मानचित्र पर कहीं भी टैप करें</string>
+
+    <string name="pref_title_add_friends_to_messages">मित्रों को संदेश में जोड़ें</string>
+    <string-array name="pref_example_list_titles">
+        <item>हमेशा</item>
+        <item>जब संभव</item>
+        <item>कभी नहीँ</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">सिंक आवृत्ति</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 मिनट</item>
+        <item>30 मिनट</item>
+        <item>1 घंटा</item>
+        <item>3 घंटा</item>
+        <item>6 घंटा</item>
+        <item>कभी नहीँ</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">सिस्टम सिंक सेटिंग्स</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">सूचनाएं</string>
+    <string name="pref_header_preference">वरीयता बदलें</string>
+
+    <string name="pref_title_new_message_notifications">नया संदेश नोटिफिकेशन</string>
+
+    <string name="pref_title_ringtone">रिंगटोन</string>
+    <string name="pref_ringtone_silent">साइलेंट</string>
+
+    <string name="pref_title_vibrate">कंपन</string>
+    <string name="title_activity_crops">फसल</string>
+    <string name="action_settings">सेटिंग्स</string>
+    <string name="section_format">अनुभाग से हैलो वर्ल्ड: %1$d</string>
+
+    <string name="alert">वर्तमान में कोई चेतावनी नहीं है</string>
+    <string name="alerts">अलर्ट</string>
+    <string name="loc_unk">स्थान अज्ञात</string>
+    <string name="feel">प्रभावित</string>
+    <string name="humid">आर्द्रता</string>
+    <string name="wind">हवा</string>
+    <string name="today">आज</string>
+    <string name="about_us">हमारे बारे में</string>
+
+    <string name="change_name">नाम बदलें</string>
+    <string name="change_mobile">मोबाइल बदलें</string>
+    <string name="change_city">शहर बदलें</string>
+
+    <string name="forecast">पूर्वानुमान</string>
+    <string name="time_req">आवश्यक समय</string>
+    <string name="temp_req">आवश्यक तापमान</string>
+
+    <string name="con_1">आवश्यक समय:65-75 दिन \nआवश्यक तापमान:77-89°F</string>
+    <string name="con_2">आवश्यक समय:75-90 दिन \nआवश्यक तापमान:68-86°F</string>
+    <string name="con_3">आवश्यक समय:35-40 दिन \nआवश्यक तापमान:68-95°F</string>
+    <string name="con_4">आवश्यक समय:00-00 दिन \nआवश्यक तापमान:72-86°F</string>
+    <string name="con_5">आवश्यक समय:30-50 दिन \nआवश्यक तापमान:80-86°F</string>
+    <string name="con_6">आवश्यक समय:40-45 दिन \nआवश्यक तापमान:57-64°F</string>
+    <string name="con_7">आवश्यक समय:75-90 दिन \nआवश्यक तापमान:54-61°F</string>
+    <string name="con_8">आवश्यक समय:30-40 दिन \nआवश्यक तापमान:77-95°F</string>
+    <string name="con_9">आवश्यक समय:00-00 दिन \nआवश्यक तापमान:72-86°F</string>
+    <string name="con_10">आवश्यक समय:30-50 दिन \nआवश्यक तापमान:80-86°F</string>
+    <string name="con_11">आवश्यक समय:130-160 दिन \nआवश्यक तापमान:75-77°F</string>
+    <string name="con_12">आवश्यक समय:65-75 दिन \nआवश्यक तापमान:77-89°F</string>
+    <string name="con_13">आवश्यक समय:75-90 दिन \nआवश्यक तापमान:68-86°F</string>
+    <string name="con_14">आवश्यक समय:35-40 दिन \nआवश्यक तापमान:68-95°F</string>
+    <string name="con_15">आवश्यक समय:30-50 दिन \nआवश्यक तापमान:80-86°F</string>
+    <string name="con_16">आवश्यक समय:65-75 दिन \nआवश्यक तापमान:77-89°F</string>
+    <string name="con_17">आवश्यक समय:75-90 दिन \nआवश्यक तापमान:68-86°F</string>
+    <string name="con_18">आवश्यक समय:35-40 दिन \nआवश्यक तापमान:68-95°F</string>
+    <string name="con_19">आवश्यक समय:30-50 दिन \nआवश्यक तापमान:80-86°F</string>
+
+
+</resources>
