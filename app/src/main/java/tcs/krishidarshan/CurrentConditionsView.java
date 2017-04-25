@@ -131,7 +131,7 @@ public class CurrentConditionsView implements GoogleMap.InfoWindowAdapter {
                 List<ForecastDaily> forecasts = mDailyForecast.getForecasts();
                 Daily daily = (forecasts.get(0).getDay() == null) ? forecasts.get(0).getNight() : forecasts.get(0).getDay();
                 narrative.setText(forecasts.get(0).getNarrative());
-                today.setText(daily.getDaypartName());
+                //today.setText(daily.getDaypartName());
                 dayOne.setText(forecasts.get(1).getDow());
                 dayTwo.setText(forecasts.get(2).getDow());
                 dayThree.setText(forecasts.get(3).getDow());

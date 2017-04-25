@@ -15,8 +15,10 @@ import android.widget.Toast;
 
 import tcs.krishidarshan.dummy.DummyContent;
 
-public class MainActivity extends AppCompatActivity {
+import static tcs.krishidarshan.MyApplication.context;
 
+public class MainActivity extends AppCompatActivity {
+private static boolean welcome=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String n = prefs.getString("pref_name", "@string/pref_name");
-        Toast.makeText(this, "Welcome " + n, Toast.LENGTH_LONG).show();
+        if(welcome) {
+            Toast.makeText(this, context.getResources().getString(R.string.welcome), Toast.LENGTH_LONG).show();
+            welcome=false;
+        }
     }
 
     private void initViews() {
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, SettingsActivity.class));
         }
         if (id == R.id.about_us) {
-            return true;
+            startActivity(new Intent(this, AboutUs.class));
         }
         if (id == R.id.alert) {
             startActivity(new Intent(this, Alert.class));

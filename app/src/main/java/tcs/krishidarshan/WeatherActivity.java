@@ -35,6 +35,8 @@ import java.io.IOException;
 import java.util.IllegalFormatConversionException;
 import java.util.List;
 
+import static tcs.krishidarshan.MyApplication.context;
+
 
 /**
  * Created by Abhishek on 19-03-2017.
@@ -155,7 +157,7 @@ public class WeatherActivity extends AppCompatActivity implements OnMapReadyCall
                     status = false;
                 } else {
                     if (et_change_location.getText().toString().isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "khaali", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), context.getResources().getString(R.string.empty), Toast.LENGTH_LONG).show();
                         et_change_location.setVisibility(View.INVISIBLE);
                         status = true;
                         return;

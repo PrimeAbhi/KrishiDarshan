@@ -12,6 +12,7 @@ import android.webkit.WebView;
 public class AboutUs extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
         WebView webView = (WebView) findViewById(R.id.about_us);

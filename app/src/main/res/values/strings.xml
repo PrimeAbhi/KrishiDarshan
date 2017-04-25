@@ -3,6 +3,7 @@
     <string name="title_activity_map">Weather</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_change_location">Change Location</string>
+    <string name="empty">Empty</string>
     <!-- Strings related to login -->
     <string name="name">Name</string>
     <string name="mobile">Mobile</string>

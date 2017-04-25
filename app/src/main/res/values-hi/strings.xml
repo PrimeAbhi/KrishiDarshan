@@ -3,6 +3,7 @@
     <string name="title_activity_map">मौसम</string>
     <string name="title_activity_settings">सेटिंग्स</string>
     <string name="title_change_location">स्थान बदलें</string>
+    <string name="empty">खाली</string>
 
     <!-- Strings related to login -->
     <string name="name">नाम</string>
