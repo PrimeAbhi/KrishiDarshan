@@ -23,6 +23,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 
+import static tcs.krishidarshan.MyApplication.context;
+
 /**
  * Created by Abhishek on 18-09-2016.
  */
@@ -147,7 +149,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
         } else {
             //If login fails
-            Toast.makeText(this, "Please Sign In to Continue", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, context.getResources().getString(R.string.login_toast), Toast.LENGTH_LONG).show();
         }
     }
 

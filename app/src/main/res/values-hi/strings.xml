@@ -4,7 +4,7 @@
     <string name="title_activity_settings">सेटिंग्स</string>
     <string name="title_change_location">स्थान बदलें</string>
     <string name="empty">खाली</string>
-
+    <string name="login_toast">जारी रखने के लिए कृपया साइन इन करें / साइन अप करें!</string>
     <!-- Strings related to login -->
     <string name="name">नाम</string>
     <string name="mobile">मोबाइल</string>
